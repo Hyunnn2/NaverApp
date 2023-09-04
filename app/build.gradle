@@ -43,5 +43,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation("com.naver.maps:map-sdk:3.17.0")
 
+    // 네이버 지도 위치 추적
+    implementation("com.google.android.gms:play-services-location:21.0.1")
 }
 
