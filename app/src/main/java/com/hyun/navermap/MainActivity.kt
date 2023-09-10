@@ -1,8 +1,12 @@
 package com.hyun.navermap
 
+import android.content.Context
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.view.View
+import android.widget.TextView
 import androidx.annotation.NonNull
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
@@ -10,9 +14,12 @@ import com.naver.maps.map.LocationTrackingMode
 import com.naver.maps.map.MapView
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
+import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.FusedLocationSource
 import com.naver.maps.map.util.MarkerIcons
+import kotlinx.coroutines.Runnable
+import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -21,9 +28,17 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationSource: FusedLocationSource // 위치를 반환
     private lateinit var naverMap: NaverMap
 
+    private lateinit var timerText : String
+    private lateinit var handler : Handler
+
     //마커
     private val marker = Marker()
     private val marker1 = Marker()
+
+    private lateinit var infoWindow : InfoWindow
+    private var timervalue: Int = 10
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +92,36 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         marker1.captionText = "경상국립대 스타벅스 앞"
 
 
+        infoWindow = InfoWindow()
+        timerText = "${timervalue}초"
+        infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(applicationContext) {
+            override fun getContentView(p0: InfoWindow): View {
+                val view = layoutInflater.inflate(R.layout.activity_info, null)
+                val titleText = view.findViewById<TextView>(R.id.Name_cross)
+                titleText.text = "경상국립대 스타벅스 앞"
+
+                val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
+                timerTextView.text = timerText
+
+                handler = Handler()
+                handler.postDelayed(timerRunnable, 1000)
+
+                return view
+            }
+        }
+
+
+        marker1.setOnClickListener {
+            if(infoWindow.map == null){
+                infoWindow.open(marker1)
+            }
+            else{
+                infoWindow.close()
+            }
+            true
+        }
     }
+
 
     override fun onStart() {
         super.onStart()
@@ -114,5 +158,28 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         mapView.onLowMemory()
     }
 
-}
+    private val timerRunnable: Runnable = object : Runnable {
+        override fun run() {
+            if (timervalue >= 0) {
+                timerText = "남은 시간: $timervalue 초"
+                infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(applicationContext) {
+                    override fun getContentView(infoWindow: InfoWindow): View {
 
+                        val view = layoutInflater.inflate(R.layout.activity_info, null)
+                        val titleText = view.findViewById<TextView>(R.id.Name_cross)
+                        titleText.text = "경상국립대 스타벅스 앞"
+
+                        val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
+                        timerTextView.text = timerText
+                        return view
+                    }
+                }
+                timervalue--
+                handler.postDelayed(this, 1000) // 1초마다 업데이트
+            } else {
+                infoWindow.close()
+            }
+        }
+    }
+
+}
