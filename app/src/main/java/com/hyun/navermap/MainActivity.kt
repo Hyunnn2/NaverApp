@@ -21,6 +21,7 @@ import com.naver.maps.map.util.MarkerIcons
 import kotlinx.coroutines.Runnable
 import kotlinx.coroutines.delay
 
+
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mapView: MapView
@@ -181,5 +182,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
     }
+
+
 
 }

@@ -1,7 +1,11 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+
+    //파이어 베이스 연동
+    id 'com.google.gms.google-services'
 }
+
 
 android {
     namespace 'com.hyun.navermap'
@@ -45,5 +49,11 @@ dependencies {
 
     // 네이버 지도 위치 추적
     implementation("com.google.android.gms:play-services-location:21.0.1")
+
+    //파이어 베이스 연동
+    implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation 'com.google.firebase:firebase-database-ktx:20.2.2'
+
 }
 

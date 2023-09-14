@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "866187120845",
+    "project_id": "naverapp-1ba0d",
+    "storage_bucket": "naverapp-1ba0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866187120845:android:d863010bbcb4a8e9365984",
+        "android_client_info": {
+          "package_name": "com.hyun.navermap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ_IMOdBZqL11o9Tji0AQYziUuCH2iW4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
