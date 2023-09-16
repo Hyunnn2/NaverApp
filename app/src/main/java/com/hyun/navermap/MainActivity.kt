@@ -31,6 +31,7 @@ import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.InputStream
+import java.util.Calendar
 
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -127,9 +128,24 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         uiSettings.isLocationButtonEnabled = true
         naverMap.locationTrackingMode = LocationTrackingMode.None //실시간 위치 추적 모드
 
+        // 현재 시간 가져오기
+        val currentTime = Calendar.getInstance()
+        val hour = currentTime.get(Calendar.HOUR_OF_DAY) // 현재 시간의 시 (0-23)
+
+        // 현재 시간에 해당하는 데이터를 찾기
+        val timeKey = when {
+            hour >= 6.5 && hour < 10 -> "6:30"
+            hour >= 10 && hour < 16 -> "10:00"
+            hour >= 16 && hour < 21 -> "16:00"
+            else -> "21:00"
+        }
 
         // signalDataList에 저장된 데이터를 사용하여 마커를 추가하는 부분을 추가
         for (signalData in signalDataList) {
+
+            // 현재 시간에 해당하는 데이터를 찾기
+            val timeInfo = signalData.time[timeKey]
+
             val marker = Marker()
             marker.position = LatLng(signalData.latitude, signalData.longitude)
             marker.captionText = signalData.captionText
@@ -138,7 +154,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
             //정보창
             val infoWindow = InfoWindow()
-            val timerText = "${signalData.time["6:30"]?.onTime}초"
+            //현재 시간에 따른 onTime
+            val timerText = "${timeInfo?.onTime}초"
 
             infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(applicationContext) {
                 override fun getContentView(p0: InfoWindow): View {
