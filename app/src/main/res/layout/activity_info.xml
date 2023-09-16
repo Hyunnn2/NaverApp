@@ -14,15 +14,15 @@
 
         <TextView
             android:id="@+id/Name_cross"
-            android:layout_height="180dp"
+            android:layout_height="100dp"
             android:layout_width="180dp"
             android:layout_margin="10dp"
             />
 
         <TextView
             android:id="@+id/Timer_cross"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
+            android:layout_height="100dp"
+            android:layout_width="100dp"
             android:layout_margin="10dp"/>
 
     </LinearLayout>
