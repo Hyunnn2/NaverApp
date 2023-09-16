@@ -128,13 +128,46 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         naverMap.locationTrackingMode = LocationTrackingMode.None //실시간 위치 추적 모드
 
 
-        // signalDataList에 저장된 데이터를 사용하여 마커를 추가하는 부분을 추가합니다.
+        // signalDataList에 저장된 데이터를 사용하여 마커를 추가하는 부분을 추가
         for (signalData in signalDataList) {
             val marker = Marker()
             marker.position = LatLng(signalData.latitude, signalData.longitude)
             marker.captionText = signalData.captionText
             marker.icon = MarkerIcons.BLACK // 원하는 마커 아이콘 설정
             marker.map = naverMap
+
+            //정보창
+            val infoWindow = InfoWindow()
+            val timerText = "${signalData.time["6:30"]?.onTime}초"
+
+            infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(applicationContext) {
+                override fun getContentView(p0: InfoWindow): View {
+                    val view = layoutInflater.inflate(R.layout.activity_info, null)
+                    val titleText = view.findViewById<TextView>(R.id.Name_cross)
+                    titleText.text = signalData.captionText
+
+                    val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
+                    timerTextView.text = timerText
+
+                    /*handler = Handler()
+                    handler.postDelayed(timerRunnable, 1000)*/
+
+                    return view
+                }
+            }
+
+            marker.position = LatLng(signalData.latitude, signalData.longitude)
+            marker.captionText = signalData.captionText
+            marker.map = naverMap
+
+            marker.setOnClickListener {
+                if (infoWindow.map == null) {
+                    infoWindow.open(marker)
+                } else {
+                    infoWindow.close()
+                }
+                true
+            }
         }
 
 
