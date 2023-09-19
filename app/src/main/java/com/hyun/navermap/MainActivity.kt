@@ -21,6 +21,9 @@ import kotlinx.coroutines.Runnable
 import org.json.JSONObject
 import java.io.InputStream
 import java.util.Calendar
+import java.util.Timer
+import java.util.TimerTask
+import kotlin.concurrent.timer
 
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -33,12 +36,22 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var timerText: String
     private lateinit var handler: Handler
 
-    private lateinit var infoWindow: InfoWindow
     private var timervalue: Int = 10
 
 
     // signalDataList를 클래스 멤버 변수로 선언하여 클래스 전체에서 사용할 수 있도록
     private val signalDataList = mutableListOf<Signal>()
+
+    // 가장 최근에 클릭한 마커가 무엇인지 알기 위한 변수
+    private val currentmarker : Int = 0
+
+    // 특정 마커를 지칭해주는 배열 설정
+    private val markerList = mutableListOf<Marker>()
+
+    // 특정 마커에 해당하는 정보창을 지정해주는 배열 설정
+    private val infowindowList = mutableListOf<InfoWindow>()
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -93,7 +106,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-
+    // 타이머 작업 정의
+    val timerTask = object : TimerTask() {
+        override fun run() {
+            // 여기에서 마커의 정보창을 업데이트하는 작업 수행
+            // 예: 마커 정보창 내용을 변경하거나 열기/닫기 등
+        }
+    }
     override fun onMapReady(@NonNull naverMap: NaverMap) {
 
         //초기 위치 : 경상대 정문
@@ -138,22 +157,33 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             marker.icon = MarkerIcons.BLACK // 원하는 마커 아이콘 설정
             marker.map = naverMap
 
-            //현재 시간에 따른 onTime
-            val timerText = "${timeInfo?.onTime}초"
+            markerList.add(marker)
 
-            //정보창
+            //정보창 설정 및 리스트에 추가
             val infoWindow = InfoWindow()
+            infowindowList.add(infoWindow)
+
+            //현재 시간에 따른 onTime
+            var timerText = "${timeInfo?.onTime}초"
+
+            //현지 시간에 따른 onTime -1연산을 위한 변수 설정
+            var timervar : Int = timeInfo?.onTime?.toInt() ?: 0
+
+            //각 마커마다의 timerRunnable 생성(해당 함수는 마커의 정보창,신호등 이름, 온타임을 인자로 받아서처리 추가 처리 하고싶은 내용 있으면 말하길)
+            val timerRunnable = CreatetimerRunnable(infoWindow, timervar, signalData.No)
+
             infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(applicationContext) {
                 override fun getContentView(p0: InfoWindow): View {
-                    val view = layoutInflater.inflate(R.layout.activity_info, null)
-                    val titleText = view.findViewById<TextView>(R.id.Name_cross)
-                    titleText.text = signalData.captionText
 
+                    val view = layoutInflater.inflate(R.layout.activity_info, null)
                     val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
+                    val titleText = view.findViewById<TextView>(R.id.Name_cross)
+
+                    titleText.text = signalData.No
                     timerTextView.text = timerText
 
-                    /*handler = Handler()
-                    handler.postDelayed(timerRunnable, 1000)*/
+                    handler = Handler()
+                    handler.postDelayed(timerRunnable, 1000)
 
                     return view
                 }
@@ -163,6 +193,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             marker.setOnClickListener {
                 if (infoWindow.map == null) {
                     infoWindow.open(marker)
+
                 } else {
                     infoWindow.close()
                 }
@@ -252,26 +283,30 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         mapView.onLowMemory()
     }
 
-    private val timerRunnable: Runnable = object : Runnable {
-        override fun run() {
-            if (timervalue >= 0) {
-                timerText = "남은 시간: $timervalue 초"
-                infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(applicationContext) {
-                    override fun getContentView(infoWindow: InfoWindow): View {
+    private fun CreatetimerRunnable(infoWindow : InfoWindow, timervar : Int, captiontext : String): Runnable{
+        return object : Runnable {
+            var timervar_a = timervar - 1
 
-                        val view = layoutInflater.inflate(R.layout.activity_info, null)
-                        val titleText = view.findViewById<TextView>(R.id.Name_cross)
-                        titleText.text = "경상국립대 스타벅스 앞"
+            override fun run() {
+                if (timervar_a >= 0) {
+                    timerText = "남은 시간: ${timervar_a} 초"
+                    infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(applicationContext) {
+                        override fun getContentView(infoWindow: InfoWindow): View {
 
-                        val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
-                        timerTextView.text = timerText
-                        return view
+                            val view = layoutInflater.inflate(R.layout.activity_info, null)
+                            val titleText = view.findViewById<TextView>(R.id.Name_cross)
+                            titleText.text = captiontext
+
+                            val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
+                            timerTextView.text = timerText
+                            return view
+                        }
                     }
+                    timervar_a--
+                    handler.postDelayed(this, 1000) // 1초마다 업데이트
+                } else {
+                    infoWindow.close()
                 }
-                timervalue--
-                handler.postDelayed(this, 1000) // 1초마다 업데이트
-            } else {
-                infoWindow.close()
             }
         }
     }
