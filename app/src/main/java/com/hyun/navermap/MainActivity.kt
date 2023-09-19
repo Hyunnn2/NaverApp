@@ -88,7 +88,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
 
     }
-
     private fun parseTimeInfo(timeObject: JSONObject): Map<String, TimeInfo> {
         val timeInfoMap = mutableMapOf<String, TimeInfo>()
 
@@ -106,13 +105,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     }
 
-    // 타이머 작업 정의
-    val timerTask = object : TimerTask() {
-        override fun run() {
-            // 여기에서 마커의 정보창을 업데이트하는 작업 수행
-            // 예: 마커 정보창 내용을 변경하거나 열기/닫기 등
-        }
-    }
     override fun onMapReady(@NonNull naverMap: NaverMap) {
 
         //초기 위치 : 경상대 정문
@@ -130,7 +122,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val uiSettings = naverMap.uiSettings
         uiSettings.isLocationButtonEnabled = true
         naverMap.locationTrackingMode = LocationTrackingMode.None //실시간 위치 추적 모드
-
 
         // 현재 시간 가져오기
         val currentTime = Calendar.getInstance()
@@ -201,50 +192,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             }
 
         }
-
-
-        /*        //마커 : 경상대 후문 이노티
-                marker.position = LatLng(35.155691, 128.107346)
-                marker.map = naverMap
-                marker.captionText = "경상국립대 이노티 앞"
-                marker.icon = MarkerIcons.BLACK // 마커 기본색은 초록색이고 검정 -> 다른색 순으로 해야함
-                marker.iconTintColor = Color.CYAN
-
-
-                //마커1 : 경상대 정문 스벅
-                marker1.position = LatLng(35.152453, 128.105398)
-                marker1.map = naverMap
-                marker1.captionText = "경상국립대 스타벅스 앞"
-
-
-                infoWindow = InfoWindow()
-                timerText = "${timervalue}초"
-                infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(applicationContext) {
-                    override fun getContentView(p0: InfoWindow): View {
-                        val view = layoutInflater.inflate(R.layout.activity_info, null)
-                        val titleText = view.findViewById<TextView>(R.id.Name_cross)
-                        titleText.text = "경상국립대 스타벅스 앞"
-
-                        val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
-                        timerTextView.text = timerText
-
-                        handler = Handler()
-                        handler.postDelayed(timerRunnable, 1000)
-
-                        return view
-                    }
-                }
-
-
-                marker1.setOnClickListener {
-                    if(infoWindow.map == null){
-                        infoWindow.open(marker1)
-                    }
-                    else{
-                        infoWindow.close()
-                    }
-                    true
-                }*/
     }
 
 
