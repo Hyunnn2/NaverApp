@@ -1,6 +1,5 @@
 {
   "Signal": {
-
     "0": {
       "No": "401-3-1",
       "latitude": 35.150925,
@@ -10,22 +9,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 125,
           "onTime": 33
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 107,
           "onTime": 33
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 123,
           "onTime": 33
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 107,
           "onTime": 33
         }
       }
@@ -40,22 +39,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 125,
           "onTime": 33
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 107,
           "onTime": 33
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 123,
           "onTime": 33
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 107,
           "onTime": 33
         }
       }
@@ -69,22 +68,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 125,
           "onTime": 33
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 107,
           "onTime": 33
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 123,
           "onTime": 33
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 107,
           "onTime": 33
         }
       }
@@ -98,22 +97,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 151,
           "onTime": 29
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 131,
           "onTime": 29
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 151,
           "onTime": 29
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 131,
           "onTime": 29
         }
       }
@@ -127,22 +126,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 151,
           "onTime": 29
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 131,
           "onTime": 29
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 151,
           "onTime": 29
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 131,
           "onTime": 29
         }
       }
@@ -156,22 +155,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 34
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 34
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 34
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 34
         }
       }
@@ -185,22 +184,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 3,
+          "StartTime":111,
           "onTime": 29
         },
         "10:00": {
           "period": 160,
-          "delayTime": 3,
+          "StartTime": 91,
           "onTime": 29
         },
         "16:00": {
           "period": 180,
-          "delayTime": 3,
+          "StartTime": 111,
           "onTime": 29
         },
         "21:00": {
           "period": 160,
-          "delayTime": 3,
+          "StartTime": 91,
           "onTime": 29
         }
       }
@@ -214,22 +213,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 145,
           "onTime": 29
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 125,
           "onTime": 29
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 145,
           "onTime": 29
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 125,
           "onTime": 29
         }
       }
@@ -243,22 +242,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 3,
+          "StartTime": 3,
           "onTime": 24
         },
         "10:00": {
           "period": 160,
-          "delayTime": 3,
+          "StartTime": 3,
           "onTime": 24
         },
         "16:00": {
           "period": 180,
-          "delayTime": 3,
+          "StartTime": 3,
           "onTime": 24
         },
         "21:00": {
           "period": 160,
-          "delayTime": 3,
+          "StartTime": 3,
           "onTime": 24
         }
       }
@@ -272,22 +271,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 129,
           "onTime": 29
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 109,
           "onTime": 29
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 129,
           "onTime": 29
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 109,
           "onTime": 29
         }
       }
@@ -301,22 +300,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 20
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 20
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 20
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 20
         }
       }
@@ -330,22 +329,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 27
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 27
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 27
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 27
         }
       }
@@ -359,22 +358,22 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 76,
           "onTime": 28
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 62,
           "onTime": 28
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 76,
           "onTime": 28
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 62,
           "onTime": 28
         }
       }
@@ -388,56 +387,28 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 116,
           "onTime": 36
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 94,
           "onTime": 36
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 108,
           "onTime": 36
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 94,
           "onTime": 36
         }
       }
     },
+
     "14": {
-      "No": "405-4",
-      "latitude": 35.155692,
-      "longitude": 128.107351,
-      "captionText": "",
-      "etc": "",
-      "time": {
-        "6:30": {
-          "period": 180,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "10:00": {
-          "period": 160,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "16:00": {
-          "period": 180,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "21:00": {
-          "period": 160,
-          "delayTime": 0,
-          "onTime": 0
-        }
-      }
-    },
-    "15": {
       "No": "406-2",
       "latitude": 35.16458,
       "longitude": 128.105944,
@@ -446,27 +417,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 38
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 38
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 38
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 38
         }
       }
     },
-    "16": {
+    "15": {
       "No": "407-2",
       "latitude": 35.161586,
       "longitude": 128.106683,
@@ -475,27 +446,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 153,
           "onTime": 27
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 133,
           "onTime": 27
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 153,
           "onTime": 27
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 133,
           "onTime": 27
         }
       }
     },
-    "17": {
+    "16": {
       "No": "408-1",
       "latitude": 35.162873,
       "longitude": 128.106161,
@@ -504,27 +475,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         }
       }
     },
-    "18": {
+    "17": {
       "No": "408-2",
       "latitude": 35.162762,
       "longitude": 128.106344,
@@ -533,27 +504,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 56,
           "onTime": 24
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 52,
           "onTime": 24
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 62,
           "onTime": 24
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 52,
           "onTime": 24
         }
       }
     },
-    "19": {
+    "18": {
       "No": "408-3",
       "latitude": 35.162927,
       "longitude": 128.106474,
@@ -562,27 +533,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 86,
           "onTime": 28
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 82,
           "onTime": 28
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 92,
           "onTime": 28
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 82,
           "onTime": 28
         }
       }
     },
-    "20": {
+    "19": {
       "No": "408-4",
       "latitude": 35.163005,
       "longitude": 128.106294,
@@ -591,27 +562,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 152,
           "onTime": 24
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 132,
           "onTime": 24
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 152,
           "onTime": 24
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 132,
           "onTime": 24
         }
       }
     },
-    "21": {
+    "20": {
       "No": "409-1",
       "latitude": 35.159286,
       "longitude": 128.10742,
@@ -620,27 +591,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 1,
+          "StartTime": 2,
           "onTime": 27
         },
         "10:00": {
           "period": 160,
-          "delayTime": 1,
+          "StartTime": 2,
           "onTime": 27
         },
         "16:00": {
           "period": 180,
-          "delayTime": 1,
+          "StartTime": 2,
           "onTime": 27
         },
         "21:00": {
           "period": 160,
-          "delayTime": 1,
+          "StartTime": 2,
           "onTime": 27
         }
       }
     },
-    "22": {
+    "21": {
       "No": "409-2",
       "latitude": 35.159008,
       "longitude": 128.108107,
@@ -649,27 +620,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 5,
+          "StartTime": 52,
           "onTime": 27
         },
         "10:00": {
           "period": 160,
-          "delayTime": 5,
+          "StartTime": 42,
           "onTime": 27
         },
         "16:00": {
           "period": 180,
-          "delayTime": 5,
+          "StartTime": 48,
           "onTime": 27
         },
         "21:00": {
           "period": 160,
-          "delayTime": 5,
+          "StartTime": 42,
           "onTime": 27
         }
       }
     },
-    "23": {
+    "22": {
       "No": "409-3",
       "latitude": 35.158929,
       "longitude": 128.107743,
@@ -678,27 +649,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 95,
           "onTime": 23
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 75,
           "onTime": 23
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 93,
           "onTime": 23
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 75,
           "onTime": 23
         }
       }
     },
-    "24": {
+    "23": {
       "No": "409-4",
       "latitude": 35.1592,
       "longitude": 128.108101,
@@ -707,27 +678,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 124,
           "onTime": 19
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 104,
           "onTime": 19
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 122,
           "onTime": 19
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 104,
           "onTime": 19
         }
       }
     },
-    "25": {
+    "24": {
       "No": "409-5",
       "latitude": 35.159353,
       "longitude": 128.107667,
@@ -736,27 +707,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 149,
           "onTime": 29
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 129,
           "onTime": 29
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 149,
           "onTime": 29
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 129,
           "onTime": 29
         }
       }
     },
-    "26": {
+    "25": {
       "No": "410-2",
       "latitude": 35.159612,
       "longitude": 128.109437,
@@ -765,146 +736,155 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 147,
           "onTime": 33
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 127,
           "onTime": 33
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 147,
           "onTime": 33
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 127,
           "onTime": 33
         }
       }
     },
-    "27": {
+    "26": {
       "No": "415-2-1",
       "latitude": 35.150864,
       "longitude": 128.111823,
       "captionText": "",
       "etc": {
-        "stime": "23:00",
-        "etime": "5:00"
+        "stime":"23:00",
+        "etime":"5:00"
       },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 26,
           "onTime": 34
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 26,
           "onTime": 34
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 26,
           "onTime": 34
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 26,
+          "onTime": 34
+        }
+      }
+    },
+    "27": {
+      "No": "415-2-2",
+      "latitude": 35.150453,
+      "longitude": 128.112034,
+      "captionText": "",
+      "etc": {
+        "stime":"23:00",
+        "etime":"5:00"
+      },
+      "time": {
+        "6:30": {
+          "period": 180,
+          "StartTime": 26,
+          "onTime": 34
+        },
+        "10:00": {
+          "period": 160,
+          "StartTime": 26,
+          "onTime": 34
+        },
+        "16:00": {
+          "period": 180,
+          "StartTime": 26,
+          "onTime": 34
+        },
+        "21:00": {
+          "period": 160,
+          "StartTime": 26,
           "onTime": 34
         }
       }
     },
     "28": {
-      "No": "415-2-2",
-      "latitude": 35.150453,
-      "longitude": 128.112034,
-      "captionText": "",
-      "etc": "",
-      "time": {
-        "6:30": {
-          "period": 180,
-          "delayTime": 2,
-          "onTime": 34
-        },
-        "10:00": {
-          "period": 160,
-          "delayTime": 2,
-          "onTime": 34
-        },
-        "16:00": {
-          "period": 180,
-          "delayTime": 2,
-          "onTime": 34
-        },
-        "21:00": {
-          "period": 160,
-          "delayTime": 2,
-          "onTime": 34
-        }
-      }
-    },
-    "29": {
       "No": "415-4",
       "latitude": 35.150535,
       "longitude": 128.111652,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"23:00",
+        "etime":"5:00"
+      },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 1,
+          "StartTime": 113,
           "onTime": 29
         },
         "10:00": {
           "period": 160,
-          "delayTime": 1,
+          "StartTime": 93,
           "onTime": 29
         },
         "16:00": {
           "period": 180,
-          "delayTime": 1,
+          "StartTime": 113,
           "onTime": 29
         },
         "21:00": {
           "period": 160,
-          "delayTime": 1,
+          "StartTime": 93,
+          "onTime": 29
+        }
+      }
+    },
+    "29": {
+      "No": "415-5",
+      "latitude": 35.150772,
+      "longitude": 128.112184,
+      "captionText": "",
+      "etc": {
+        "stime":"23:00",
+        "etime":"5:00"
+      },
+      "time": {
+        "6:30": {
+          "period": 180,
+          "StartTime": 147,
+          "onTime": 29
+        },
+        "10:00": {
+          "period": 160,
+          "StartTime": 127,
+          "onTime": 29
+        },
+        "16:00": {
+          "period": 180,
+          "StartTime": 147,
+          "onTime": 29
+        },
+        "21:00": {
+          "period": 160,
+          "StartTime": 127,
           "onTime": 29
         }
       }
     },
     "30": {
-      "No": "415-5",
-      "latitude": 35.150772,
-      "longitude": 128.112184,
-      "captionText": "",
-      "etc": "",
-      "time": {
-        "6:30": {
-          "period": 180,
-          "delayTime": 1,
-          "onTime": 29
-        },
-        "10:00": {
-          "period": 160,
-          "delayTime": 1,
-          "onTime": 29
-        },
-        "16:00": {
-          "period": 180,
-          "delayTime": 1,
-          "onTime": 29
-        },
-        "21:00": {
-          "period": 160,
-          "delayTime": 1,
-          "onTime": 29
-        }
-      }
-    },
-    "31": {
       "No": "416-1-1",
       "latitude": 35.151562,
       "longitude": 128.11401,
@@ -913,27 +893,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 25
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 25
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 25
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 25
         }
       }
     },
-    "32": {
+    "31": {
       "No": "416-1-2",
       "latitude": 35.151298,
       "longitude": 128.1142,
@@ -942,27 +922,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 25
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 25
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 25
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 25
         }
       }
     },
-    "33": {
+    "32": {
       "No": "416-3",
       "latitude": 35.151459,
       "longitude": 12.114242,
@@ -971,27 +951,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 85,
           "onTime": 28
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 65,
           "onTime": 28
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 81,
           "onTime": 28
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 65,
           "onTime": 28
         }
       }
     },
-    "34": {
+    "33": {
       "No": "416-4",
       "latitude": 35.151386,
       "longitude": 128.113942,
@@ -1000,27 +980,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 120,
           "onTime": 28
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 100,
           "onTime": 28
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 116,
           "onTime": 28
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 100,
           "onTime": 28
         }
       }
     },
-    "35": {
+    "34": {
       "No": "(417-1-1)",
       "latitude": 35.153165,
       "longitude": 128.117042,
@@ -1029,27 +1009,27 @@
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 30
         },
         "9:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 30
         },
         "16:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 30
         },
         "20:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 30
         }
       }
     },
-    "36": {
+    "35": {
       "No": "(417-1-2)",
       "latitude": 35.152797,
       "longitude": 128.116704,
@@ -1058,56 +1038,28 @@
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 30
         },
         "9:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 30
         },
         "16:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 30
         },
         "20:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 30
         }
       }
     },
-    "37": {
-      "No": "(417-2)",
-      "latitude": 35.153165,
-      "longitude": 128.117042,
-      "captionText": "",
-      "etc": "",
-      "time": {
-        "7:00": {
-          "period": 160,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "9:00": {
-          "period": 150,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "16:00": {
-          "period": 160,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "20:00": {
-          "period": 150,
-          "delayTime": 0,
-          "onTime": 0
-        }
-      }
-    },
-    "38": {
+
+    "36": {
       "No": "(417-3)",
       "latitude": 35.152798,
       "longitude": 128.117053,
@@ -1116,27 +1068,27 @@
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 61,
           "onTime": 36
         },
         "9:00": {
           "period": 150,
-          "delayTime": 0,
+          "StartTime": 53,
           "onTime": 36
         },
         "16:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 59,
           "onTime": 36
         },
         "20:00": {
           "period": 150,
-          "delayTime": 0,
+          "StartTime": 53,
           "onTime": 36
         }
       }
     },
-    "39": {
+    "37": {
       "No": "(417-4)",
       "latitude": 35.153216,
       "longitude": 128.116717,
@@ -1145,56 +1097,28 @@
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 101,
           "onTime": 31
         },
         "9:00": {
           "period": 150,
-          "delayTime": 0,
+          "StartTime": 93,
           "onTime": 31
         },
         "16:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 99,
           "onTime": 31
         },
         "20:00": {
           "period": 150,
-          "delayTime": 0,
+          "StartTime": 93,
           "onTime": 31
         }
       }
     },
-    "40": {
-      "No": "(417-5)",
-      "latitude": 35.152797,
-      "longitude": 128.116704,
-      "captionText": "",
-      "etc": "",
-      "time": {
-        "7:00": {
-          "period": 160,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "9:00": {
-          "period": 150,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "16:00": {
-          "period": 160,
-          "delayTime": 0,
-          "onTime": 0
-        },
-        "20:00": {
-          "period": 150,
-          "delayTime": 0,
-          "onTime": 0
-        }
-      }
-    },
-    "41": {
+
+    "38": {
       "No": "(418-1-1)",
       "latitude": 35.155043,
       "longitude": 128.117633,
@@ -1203,27 +1127,27 @@
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 26
         },
         "9:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 26
         },
         "16:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 26
         },
         "20:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 26
         }
       }
     },
-    "42": {
+    "39": {
       "No": "(418-1-2)",
       "latitude": 35.154906,
       "longitude": 128.118177,
@@ -1232,27 +1156,27 @@
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 26
         },
         "9:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 26
         },
         "16:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 26
         },
         "20:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 26
         }
       }
     },
-    "43": {
+    "40": {
       "No": "(418-3)",
       "latitude": 35.154792,
       "longitude": 128.117846,
@@ -1261,27 +1185,27 @@
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 1,
+          "StartTime": 61,
           "onTime": 35
         },
         "9:00": {
           "period": 150,
-          "delayTime": 1,
+          "StartTime": 57,
           "onTime": 35
         },
         "16:00": {
           "period": 160,
-          "delayTime": 1,
+          "StartTime": 53,
           "onTime": 35
         },
         "20:00": {
           "period": 150,
-          "delayTime": 1,
+          "StartTime": 57,
           "onTime": 35
         }
       }
     },
-    "44": {
+    "41": {
       "No": "(418-4)",
       "latitude": 35.155141,
       "longitude": 128.117869,
@@ -1290,265 +1214,283 @@
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 1,
+          "StartTime": 97,
           "onTime": 31
         },
         "9:00": {
           "period": 150,
-          "delayTime": 1,
+          "StartTime": 93,
           "onTime": 31
         },
         "16:00": {
           "period": 160,
-          "delayTime": 1,
+          "StartTime": 89,
           "onTime": 31
         },
         "20:00": {
           "period": 150,
-          "delayTime": 1,
+          "StartTime": 93,
           "onTime": 31
         }
       }
     },
-    "45": {
+    "42": {
       "No": "(421-1-1)",
       "latitude": 35.154961,
       "longitude": 128.11392,
       "captionText": "",
       "etc": {
-        "stime": "00:00",
-        "etime": "5:00"
+        "stime":"00:00",
+        "etime":"5:00"
       },
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "9:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "16:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "20:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         }
       }
     },
-    "46": {
+    "43": {
       "No": "(421-1-2)",
       "latitude": 35.15465,
       "longitude": 128.113732,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"00:00",
+        "etime":"5:00"
+      },
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "9:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "16:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "20:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         }
       }
     },
-    "47": {
+    "44": {
       "No": "(421-3)",
       "latitude": 35.15488,
       "longitude": 128.113656,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"00:00",
+        "etime":"5:00"
+      },
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 72,
           "onTime": 30
         },
         "9:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 64,
           "onTime": 30
         },
         "16:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 68,
           "onTime": 30
         },
         "20:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 64,
           "onTime": 30
         }
       }
     },
-    "48": {
+    "45": {
       "No": "(421-4)",
       "latitude": 35.154726,
       "longitude": 128.11401,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"00:00",
+        "etime":"5:00"
+      },
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 108,
           "onTime": 26
         },
         "9:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 100,
           "onTime": 26
         },
         "16:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 104,
           "onTime": 26
         },
         "20:00": {
           "period": 150,
-          "delayTime": 2,
+          "StartTime": 100,
           "onTime": 26
         }
       }
     },
-    "49": {
+    "46": {
       "No": "423-1-1",
       "latitude": 35.150863,
       "longitude": 128.111825,
       "captionText": "",
       "etc": {
-        "stime": "23:00",
-        "etime": "5:00"
+        "stime":"23:00",
+        "etime":"5:00"
       },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         }
       }
     },
-    "50": {
+    "47": {
       "No": "423-1-2",
       "latitude": 35.150457,
       "longitude": 128.112039,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"23:00",
+        "etime":"5:00"
+      },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 28
         }
       }
     },
-    "51": {
+    "48": {
       "No": "423-3",
       "latitude": 35.15077,
       "longitude": 128.112185,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"23:00",
+        "etime":"5:00"
+      },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 88,
           "onTime": 24
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 72,
           "onTime": 24
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 88,
           "onTime": 24
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 72,
           "onTime": 24
         }
       }
     },
-    "52": {
+    "49": {
       "No": "423-4",
       "latitude": 35.15053,
       "longitude": 128.111653,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"23:00",
+        "etime":"5:00"
+      },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 118,
           "onTime": 24
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 102,
           "onTime": 24
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 118,
           "onTime": 24
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 102,
           "onTime": 24
         }
       }
     },
-    "53": {
+    "50": {
       "No": "424-2",
       "latitude": 35.148219,
       "longitude": 128.105135,
@@ -1557,27 +1499,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 82,
           "onTime": 22
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 70,
           "onTime": 22
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 82,
           "onTime": 22
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 70,
           "onTime": 22
         }
       }
     },
-    "54": {
+    "51": {
       "No": "424-4",
       "latitude": 35.148127,
       "longitude": 128.105353,
@@ -1586,27 +1528,27 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 97,
           "onTime": 31
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 85,
           "onTime": 31
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 85,
           "onTime": 31
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 31
         }
       }
     },
-    "55": {
+    "52": {
       "No": "425-4",
       "latitude": 35.145302,
       "longitude": 128.101533,
@@ -1615,341 +1557,350 @@
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 135,
           "onTime": 26
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 115,
           "onTime": 26
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 135,
           "onTime": 26
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 115,
           "onTime": 26
         }
       }
     },
-    "56": {
+    "53": {
       "No": "428-1",
       "latitude": 35.16343,
       "longitude": 128.108232,
       "captionText": "",
       "etc": {
-        "stime": "00:00",
-        "etime": "5:00"
+        "stime":"00:00",
+        "etime":"5:00"
       },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 22
         }
       }
     },
-    "57": {
+    "54": {
       "No": "428-3",
       "latitude": 35.163264,
       "longitude": 128.108395,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"00:00",
+        "etime":"5:00"
+      },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 55,
           "onTime": 23
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 47,
           "onTime": 23
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 55,
           "onTime": 23
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 47,
           "onTime": 23
         }
       }
     },
-    "58": {
+    "55": {
       "No": "428-4",
       "latitude": 35.16343,
       "longitude": 128.108232,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"00:00",
+        "etime":"5:00"
+      },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 84,
           "onTime": 22
         },
         "10:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 76,
           "onTime": 22
         },
         "16:00": {
           "period": 180,
-          "delayTime": 2,
+          "StartTime": 84,
           "onTime": 22
         },
         "21:00": {
           "period": 160,
-          "delayTime": 2,
+          "StartTime": 76,
           "onTime": 22
         }
       }
     },
-    "59": {
+    "56": {
       "No": "428-6",
       "latitude": 35.163264,
       "longitude": 128.108395,
       "captionText": "",
-      "etc": "",
+      "etc": {
+        "stime":"00:00",
+        "etime":"5:00"
+      },
       "time": {
         "6:30": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 153,
           "onTime": 23
         },
         "10:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 133,
           "onTime": 23
         },
         "16:00": {
           "period": 180,
-          "delayTime": 0,
+          "StartTime": 153,
           "onTime": 23
         },
         "21:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 133,
           "onTime": 23
         }
       }
     },
-    "60": {
+    "57": {
       "No": "(446-3-1)",
       "latitude": 35.154097,
       "longitude": 128.115469,
       "captionText": "",
       "etc": {
-        "stime": "22:00",
-        "etime": "7:00"
+        "stime":"22:00",
+        "etime":"7:00"
       },
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 116,
           "onTime": 28
         },
         "9:00": {
           "period": 150,
-          "delayTime": 0,
+          "StartTime": 108,
           "onTime": 28
         },
         "16:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 108,
           "onTime": 28
         },
         "20:00": {
           "period": 150,
-          "delayTime": 0,
+          "StartTime": 108,
           "onTime": 28
         }
       }
     },
-    "61": {
+    "58": {
       "No": "(493-2)",
       "latitude": 35.155726,
       "longitude": 128.109568,
       "captionText": "",
-      "etc": {
-        "stime": "00:00",
-        "etime": "5:00"
-      },
+      "etc":{
+        "stime":"00:00",
+        "etime":"5:00"
+      } ,
       "time": {
         "7:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 136,
           "onTime": 24
         },
         "9:00": {
           "period": 150,
-          "delayTime": 0,
+          "StartTime":126,
           "onTime": 24
         },
         "16:00": {
           "period": 160,
-          "delayTime": 0,
+          "StartTime": 136,
           "onTime": 24
         },
         "20:00": {
           "period": 150,
-          "delayTime": 0,
+          "StartTime": 126,
           "onTime": 24
         }
       }
     },
-    "62": {
+    "59": {
       "No": "427-1",
       "latitude": 35.152859,
       "longitude": 128.120398,
       "captionText": "",
       "etc": {
-        "stime": "21:00",
-        "etime": "7:00"
+        "stime":"21:00",
+        "etime":"7:00"
       },
       "time": {
         "7:00": {
           "period": 140,
-          "delayTime": 2,
+          "StartTime": 2,
           "onTime": 21
         }
       }
     },
-    "63": {
+    "60": {
       "No": "427-2",
       "latitude": 35.152729,
       "longitude": 128.120421,
       "captionText": "",
       "etc": {
-        "stime": "21:00",
-        "etime": "7:00"
+        "stime":"21:00",
+        "etime":"7:00"
       },
       "time": {
         "7:00": {
           "period": 140,
-          "delayTime": 2,
+          "StartTime": 47,
           "onTime": 22
         }
       }
     },
-    "64": {
+    "61": {
       "No": "427-3",
       "latitude": 35.152699,
       "longitude": 128.12025,
       "captionText": "",
       "etc": {
-        "stime": "21:00",
-        "etime": "7:00"
+        "stime":"21:00",
+        "etime":"7:00"
       },
       "time": {
         "7:00": {
           "period": 140,
-          "delayTime": 2,
+          "StartTime": 77,
           "onTime": 21
         }
       }
     },
-    "65": {
+    "62": {
       "No": "427-4",
       "latitude": 35.152843,
       "longitude": 128.120235,
       "captionText": "",
       "etc": {
-        "stime": "21:00",
-        "etime": "7:00"
+        "stime":"21:00",
+        "etime":"7:00"
       },
       "time": {
         "7:00": {
           "period": 140,
-          "delayTime": 2,
+          "StartTime": 112,
           "onTime": 22
         }
       }
     },
-    "66": {
+    "63": {
       "No": "434-3",
       "latitude": 35.152132,
       "longitude": 128.111584,
       "captionText": "",
       "etc": {
-        "stime": "20:00",
-        "etime": "7:00"
+        "stime":"20:00",
+        "etime":"7:00"
       },
       "time": {
         "7:00": {
           "period": 100,
-          "delayTime": 0,
+          "StartTime": 62,
           "onTime": 38
         }
       }
     },
-    "67": {
+    "64": {
       "No": "491-1",
-      "latitude": 35.1490701,
+      "latitude": 35.149701,
       "longitude": 128.102416,
       "captionText": "",
-      "etc": {
-        "stime": "00:00",
-        "etime": "00:00"
-      },
+      "etc":{
+        "stime":"00:00",
+        "etime":"00:00"
+      } ,
       "time": {
         "7:00": {
           "period": 0,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 0
         }
       }
     },
-    "68": {
+    "65": {
       "No": "491-2",
       "latitude": 35.149671,
       "longitude": 128.102549,
       "captionText": "",
-      "etc": {
-        "stime": "00:00",
-        "etime": "00:00"
-      },
+      "etc":{
+        "stime":"00:00",
+        "etime":"00:00"
+      } ,
       "time": {
         "7:00": {
           "period": 0,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 0
         }
       }
     },
-    "69": {
+    "66": {
       "No": "491-3",
       "latitude": 35.149477,
       "longitude": 128.102555,
       "captionText": "",
-      "etc": {
-        "stime": "00:00",
-        "etime": "00:00"
-      },
+      "etc":{
+        "stime":"00:00",
+        "etime":"00:00"
+      } ,
       "time": {
         "7:00": {
           "period": 0,
-          "delayTime": 0,
+          "StartTime": 0,
           "onTime": 0
         }
       }

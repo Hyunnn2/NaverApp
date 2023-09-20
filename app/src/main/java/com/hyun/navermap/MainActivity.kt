@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val jsonObject = JSONObject(jsonString)
 
         // 0부터 69까지의 신호등 데이터 가져오기
-        for (i in 0 until 70) {
+        for (i in 0 until 67) {
             val signalObject = jsonObject.getJSONObject("Signal").getJSONObject(i.toString())
             val signalData = Signal(
                 No = signalObject.getString("No"),
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             val timeInfoObject = timeObject.getJSONObject(key)
             val timeInfo = TimeInfo(
                 period = timeInfoObject.getInt("period"),
-                delayTime = timeInfoObject.getInt("delayTime"),
+                delayTime = timeInfoObject.getInt("StartTime"),
                 onTime = timeInfoObject.getInt("onTime")
             )
             timeInfoMap[key] = timeInfo
