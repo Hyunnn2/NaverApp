@@ -10,6 +10,6 @@ class Signal (  val No: String,
 
 class TimeInfo(
     val period: Int,
-    val delayTime: Int,
+    val StartTime: Int,
     val onTime: Int
 )
