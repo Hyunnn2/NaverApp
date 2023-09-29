@@ -3,6 +3,8 @@ package com.hyun.navermap
 import android.content.res.Resources
 import org.json.JSONObject
 import java.io.InputStream
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 class SignalDataLoader(private val resources: Resources) {
     fun loadSignalData(): List<Signal> {

@@ -78,21 +78,40 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
         // 현재 시간 가져오기
         val currentTime = Calendar.getInstance()
-        val hour = currentTime.get(Calendar.HOUR_OF_DAY) // 현재 시간의 시 (0-23)
+        val currentHour = currentTime.get(Calendar.HOUR_OF_DAY) // 현재 시간의 시 (0-23)
 
         // 현재 시간에 해당하는 데이터를 찾기
-        val timeKey = when {
-            hour >= 6.5 && hour < 10 -> "6:30"
-            hour >= 10 && hour < 16 -> "10:00"
-            hour >= 16 && hour < 21 -> "16:00"
-            else -> "21:00"
+        //6:30 주기
+        fun getTimeKeyForFirstRange(hour: Int): String {
+            return when {
+                hour >= 6.5 && hour < 10 -> "6:30"
+                hour >= 10 && hour < 16 -> "10:00"
+                hour >= 16 && hour <21 -> "16:00"
+                else -> "21:00"
+            }
+        }
+
+        //7:00 주기
+        fun getTimeKeyForSecondRange(hour: Int): String {
+            return when {
+                hour >= 7 && hour < 9 -> "7:00"
+                hour >= 9 && hour < 16 -> "9:00"
+                hour >= 16 && hour < 20 -> "16:00"
+                else -> "20:00"
+            }
         }
 
         // signalDataList에 저장된 데이터를 사용하여 마커추가
+
         for (signalData in signalDataList) {
 
-            // 현재 시간에 해당하는 데이터를 찾기
-            val timeInfo = signalData.time[timeKey]
+            val timeKey1 = getTimeKeyForFirstRange(currentHour)
+            val timeKey2 = getTimeKeyForSecondRange(currentHour)
+
+            val timeInfo =
+                if (signalData.time.containsKey(timeKey1)) signalData.time[timeKey1]
+                else if (signalData.time.containsKey(timeKey2)) signalData.time[timeKey2]
+                else continue
 
             //마커 찍기
             val marker = Marker()

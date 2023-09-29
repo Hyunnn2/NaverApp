@@ -1,5 +1,7 @@
 package com.hyun.navermap
 
+import java.time.LocalTime
+
 class Signal (  val No: String,
                 val latitude: Double,
                 val longitude: Double,
