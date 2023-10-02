@@ -13,18 +13,19 @@ import com.naver.maps.map.overlay.Marker
 
 class TimerInfo (
     private val marker : Marker,
-    private val timeInfo : TimeInfo?,
+    private val lasttime_state : Int,
     private val signalData: Signal,
     private var context : Context,
-    private val infoWindow: InfoWindow
+    private val infoWindow: InfoWindow,
+    private var state : String
 ){
     private lateinit var handler : Handler
 
     //현재 시간에 따른 onTime
-    var timerText = "${timeInfo?.onTime}초"
+    var timerText = "남은 시간: ${lasttime_state}초"
 
     //현지 시간에 따른 onTime -1연산을 위한 변수 설정
-    var timervar : Int = timeInfo?.onTime?.toInt() ?: 0
+    var timervar : Int = lasttime_state
 
     //각 마커마다의 timerRunnable 생성(해당 함수는 마커의 정보창,신호등 이름, 온타임을 인자로 받아서처리 추가 처리 하고싶은 내용 있으면 말하길)
     val timerRunnable = CreatetimerRunnable(infoWindow, timervar, signalData.No)
@@ -36,7 +37,9 @@ class TimerInfo (
                 val view = LayoutInflater.from(context).inflate(R.layout.activity_info, null)
                 val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
                 val titleText = view.findViewById<TextView>(R.id.Name_cross)
+                val stateText = view.findViewById<TextView>(R.id.State_cross)
 
+                stateText.text = state
                 titleText.text = signalData.No
                 timerTextView.text = timerText
 
@@ -61,9 +64,11 @@ class TimerInfo (
 
                             val view = LayoutInflater.from(context).inflate(R.layout.activity_info, null)
                             val titleText = view.findViewById<TextView>(R.id.Name_cross)
-                            titleText.text = captiontext
-
+                            val stateText = view.findViewById<TextView>(R.id.State_cross)
                             val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
+
+                            stateText.text = state
+                            titleText.text = captiontext
                             timerTextView.text = timerText
                             return view
                         }

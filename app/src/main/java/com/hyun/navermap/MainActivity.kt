@@ -80,6 +80,20 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val currentTime = Calendar.getInstance()
         val currentHour = currentTime.get(Calendar.HOUR_OF_DAY) // 현재 시간의 시 (0-23)
 
+        // 현재 시간 가져오기(분, 초)
+        val currentMinutes = currentTime.get(Calendar.MINUTE)
+        val currentsecond = currentTime.get(Calendar.SECOND)
+
+        println("분 : ${currentMinutes}")
+        println("초 : ${currentsecond}")
+
+        // 가져온 현재시간을 이용해 총 초의 값계산
+        var Time_second = currentMinutes * 60 + currentsecond
+
+        println("총초 : ${Time_second}")
+
+
+
         // 현재 시간에 해당하는 데이터를 찾기
         //6:30 주기
         fun getTimeKeyForFirstRange(hour: Int): String {
@@ -113,6 +127,37 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 else if (signalData.time.containsKey(timeKey2)) signalData.time[timeKey2]
                 else continue
 
+            // 각 시간 주기에 맞는 나머지 시간 계산
+            println("주기 : ${timeInfo!!.period.toInt()}")
+            val ls =  Time_second % (timeInfo!!.period.toInt())
+
+            println("나머지 시간 : ${ls}")
+
+            // 적, 청 구분
+            val lg = timeInfo.StartTime + timeInfo.onTime
+            var state: String
+
+            // 신호등 상태의 잔여시간
+            var lasttime_state : Int
+
+
+
+            if(ls < timeInfo.StartTime){
+                state = "적"
+                lasttime_state = timeInfo.StartTime - ls
+            }
+            else if(timeInfo.StartTime <= ls && ls <= lg){
+                state = "청"
+                lasttime_state = lg - ls
+            }
+            //(lg <= ls)
+            else{
+                state = "적"
+                lasttime_state = timeInfo.StartTime + timeInfo.period - ls
+            }
+
+            println("현재 신호등 상태 : ${state} , 현재상태에서의 잔여시간 : ${lasttime_state}")
+
             //마커 찍기
             val marker = Marker()
             marker.position = LatLng(signalData.latitude, signalData.longitude)
@@ -127,7 +172,11 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             infowindowList.add(infoWindow)
 
             // InfoWindow에 Timer기능을 추가해주는 class 사용
-            val infoTimer = TimerInfo(marker, timeInfo, signalData, applicationContext ,infoWindow)
+            val infoTimer = TimerInfo(marker, lasttime_state, signalData, applicationContext ,infoWindow, state)
+
+
+
+
 
             //마커 클릭 이벤트
             marker.setOnClickListener {
