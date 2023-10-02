@@ -5,12 +5,9 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
-import com.google.android.gms.common.internal.Objects
 import com.hyun.navermap.R
 import com.hyun.navermap.Signal
 import com.hyun.navermap.TimeInfo
-import com.naver.maps.map.MapView
-import com.naver.maps.map.NaverMap
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
 

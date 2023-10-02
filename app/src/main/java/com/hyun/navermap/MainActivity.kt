@@ -126,12 +126,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             val infoWindow = InfoWindow()
             infowindowList.add(infoWindow)
 
-            //현재 시간에 따른 onTime
-            var timerText = "${timeInfo?.onTime}초"
-
-            //현지 시간에 따른 onTime -1연산을 위한 변수 설정
-            var timervar : Int = timeInfo?.onTime?.toInt() ?: 0
-
             // InfoWindow에 Timer기능을 추가해주는 class 사용
             val infoTimer = TimerInfo(marker, timeInfo, signalData, applicationContext ,infoWindow)
 
