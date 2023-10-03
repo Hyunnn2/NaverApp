@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private val infowindowList = mutableListOf<InfoWindow>()
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -141,7 +142,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             var lasttime_state : Int
 
 
-
+            // 신호등 적,청 구분을 위한 수식
             if(ls < timeInfo.StartTime){
                 state = "적"
                 lasttime_state = timeInfo.StartTime - ls
@@ -172,10 +173,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             infowindowList.add(infoWindow)
 
             // InfoWindow에 Timer기능을 추가해주는 class 사용
-            val infoTimer = TimerInfo(marker, lasttime_state, signalData, applicationContext ,infoWindow, state)
-
-
-
+            val offtime = timeInfo.period - timeInfo.onTime
+            val infoTimer = TimerInfo(marker, lasttime_state, signalData, applicationContext ,infoWindow, state,timeInfo.onTime,offtime)
 
 
             //마커 클릭 이벤트

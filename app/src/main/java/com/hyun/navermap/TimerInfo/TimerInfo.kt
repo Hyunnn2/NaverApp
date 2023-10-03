@@ -17,7 +17,9 @@ class TimerInfo (
     private val signalData: Signal,
     private var context : Context,
     private val infoWindow: InfoWindow,
-    private var state : String
+    private var state : String,
+    private val Ontime : Int,
+    private val Offtime : Int
 ){
     private lateinit var handler : Handler
 
@@ -57,7 +59,7 @@ class TimerInfo (
             var timervar_a = timervar - 1
 
             override fun run() {
-                if (timervar_a >= 0) {
+                if (timervar_a > 0) {
                     timerText = "남은 시간: ${timervar_a} 초"
                     infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(context) {
                         override fun getContentView(infoWindow: InfoWindow): View {
@@ -76,7 +78,32 @@ class TimerInfo (
                     timervar_a--
                     handler.postDelayed(this, 1000) // 1초마다 업데이트
                 } else {
-                    infoWindow.close()
+                    if(state == "적"){
+                        timervar_a = Ontime
+                        state = "청"
+
+                    }
+                    else if(state == "청"){
+                        timervar_a = Offtime
+                        state = "적"
+                    }
+                    timerText = "남은 시간: ${timervar_a} 초"
+                    infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(context) {
+                        override fun getContentView(infoWindow: InfoWindow): View {
+
+                            val view = LayoutInflater.from(context).inflate(R.layout.activity_info, null)
+                            val titleText = view.findViewById<TextView>(R.id.Name_cross)
+                            val stateText = view.findViewById<TextView>(R.id.State_cross)
+                            val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
+
+                            stateText.text = state
+                            titleText.text = captiontext
+                            timerTextView.text = timerText
+                            return view
+                        }
+                    }
+                    timervar_a--
+                    handler.postDelayed(this,1000)
                 }
             }
         }
