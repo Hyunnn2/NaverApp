@@ -20,6 +20,7 @@ import kotlinx.coroutines.Runnable
 import java.util.Calendar
 import com.hyun.navermap.TimerInfo.TimerInfo
 
+
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mapView: MapView
@@ -27,15 +28,15 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationSource: FusedLocationSource // 위치를 반환
     private lateinit var naverMap: NaverMap
 
+
     private lateinit var timerText: String
     private lateinit var handler: Handler
-
 
     private lateinit var signalDataList: List<Signal>
     private lateinit var signalDataLoader: SignalDataLoader
 
     // 가장 최근에 클릭한 마커가 무엇인지 알기 위한 변수
-    private val currentmarker : Int = 0
+    private val currentmarker: Int = 0
 
     // 특정 마커를 지칭해주는 배열 설정
     private val markerList = mutableListOf<Marker>()
@@ -43,6 +44,17 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     // 특정 마커에 해당하는 정보창을 지정해주는 배열 설정
     private val infowindowList = mutableListOf<InfoWindow>()
 
+    // 잔여시간 리스트 목록
+    private val lasttimeList = mutableListOf<Int>()
+
+    // 청색 신호등 점등시간 리스트 목록
+    private var OntimeList = mutableListOf<Int>()
+
+    // 적색 신호등 점등시간 리스트 목록
+    private var OfftimeList = mutableListOf<Int>()
+    // Runnable 변수 만들기(1000ms 마다 맵을 업데이트)
+
+    private lateinit var MapRunnable: Runnable
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -52,12 +64,13 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         mapView = findViewById(R.id.map_view)
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
-
         locationSource = FusedLocationSource(this, LOCATION_PERMISSTION_REQUEST_CODE)
 
         signalDataLoader = SignalDataLoader(resources)
         signalDataList = signalDataLoader.loadSignalData()
+
     }
+
 
     override fun onMapReady(@NonNull naverMap: NaverMap) {
 
@@ -85,15 +98,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val currentMinutes = currentTime.get(Calendar.MINUTE)
         val currentsecond = currentTime.get(Calendar.SECOND)
 
-        println("분 : ${currentMinutes}")
-        println("초 : ${currentsecond}")
-
         // 가져온 현재시간을 이용해 총 초의 값계산
         var Time_second = currentMinutes * 60 + currentsecond
-
-        println("총초 : ${Time_second}")
-
-
 
         // 현재 시간에 해당하는 데이터를 찾기
         //6:30 주기
@@ -101,7 +107,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             return when {
                 hour >= 6.5 && hour < 10 -> "6:30"
                 hour >= 10 && hour < 16 -> "10:00"
-                hour >= 16 && hour <21 -> "16:00"
+                hour >= 16 && hour < 21 -> "16:00"
                 else -> "21:00"
             }
         }
@@ -129,35 +135,28 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 else continue
 
             // 각 시간 주기에 맞는 나머지 시간 계산
-            println("주기 : ${timeInfo!!.period.toInt()}")
-            val ls =  Time_second % (timeInfo!!.period.toInt())
-
-            println("나머지 시간 : ${ls}")
+            val ls = Time_second % (timeInfo!!.period.toInt())
 
             // 적, 청 구분
             val lg = timeInfo.StartTime + timeInfo.onTime
             var state: String
 
             // 신호등 상태의 잔여시간
-            var lasttime_state : Int
-
+            var lasttime_state: Int
 
             // 신호등 적,청 구분을 위한 수식
-            if(ls < timeInfo.StartTime){
+            if (ls < timeInfo.StartTime) {
                 state = "적"
                 lasttime_state = timeInfo.StartTime - ls
-            }
-            else if(timeInfo.StartTime <= ls && ls <= lg){
+            } else if (timeInfo.StartTime <= ls && ls <= lg) {
                 state = "청"
                 lasttime_state = lg - ls
             }
             //(lg <= ls)
-            else{
+            else {
                 state = "적"
                 lasttime_state = timeInfo.StartTime + timeInfo.period - ls
             }
-
-            println("현재 신호등 상태 : ${state} , 현재상태에서의 잔여시간 : ${lasttime_state}")
 
             //마커 찍기
             val marker = Marker()
@@ -174,8 +173,49 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
             // InfoWindow에 Timer기능을 추가해주는 class 사용
             val offtime = timeInfo.period - timeInfo.onTime
-            val infoTimer = TimerInfo(marker, lasttime_state, signalData, applicationContext ,infoWindow, state,timeInfo.onTime,offtime)
+            val ontime = timeInfo.onTime
 
+            lasttimeList.add(lasttime_state)
+            OntimeList.add(ontime)
+            OfftimeList.add(offtime)
+
+            if (lasttime_state > 0) {
+                val infoTimer = TimerInfo(
+                    marker,
+                    lasttime_state,
+                    signalData,
+                    applicationContext,
+                    infoWindow,
+                    state
+                )
+            } else {
+                if (state == "적") {
+                    state = "청"
+                    lasttime_state = ontime
+                    val infoTimer = TimerInfo(
+                        marker,
+                        lasttime_state,
+                        signalData,
+                        applicationContext,
+                        infoWindow,
+                        state
+                    )
+                } else if (state == "청") {
+                    state = "적"
+                    lasttime_state = offtime
+                    val infoTimer = TimerInfo(
+                        marker,
+                        lasttime_state,
+                        signalData,
+                        applicationContext,
+                        infoWindow,
+                        state
+                    )
+                }
+            }
+            lasttime_state--
+            handler = Handler()
+            handler.postDelayed(UpdateRunnable(lasttime_state, marker, signalData, infoWindow, state, ontime, offtime),1000)
 
             //마커 클릭 이벤트
             marker.setOnClickListener {
@@ -187,11 +227,67 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 }
                 true
             }
-
         }
     }
 
+    // 백그라운드 타이머 구현을 위해 정보창 정보를 1초간격으로 업데이트
+    private fun UpdateRunnable(
+        lasttime_state : Int,
+        marker: Marker,
+        signalData : Signal,
+        infoWindow : InfoWindow,
+        state : String,
+        ontime : Int,
+        offtime : Int
+    ) : Runnable{
+        return object : Runnable{
 
+            var time = lasttime_state
+            var state_a = state
+
+            override fun run() {
+                println("해당 스레드의 입력값: ${state_a}, ${time}")
+                if (time > 0) {
+                    val infoTimer = TimerInfo(
+                        marker,
+                        time,
+                        signalData,
+                        applicationContext,
+                        infoWindow,
+                        state_a
+                    )
+                }
+                else {
+                    if (state_a == "적") {
+                        state_a = "청"
+                        time = ontime
+                        val infoTimer = TimerInfo(
+                            marker,
+                            time,
+                            signalData,
+                            applicationContext,
+                            infoWindow,
+                            state_a
+                        )
+                    } else if (state_a == "청") {
+                        state_a = "적"
+                        time = offtime
+                        val infoTimer = TimerInfo(
+                            marker,
+                            time,
+                            signalData,
+                            applicationContext,
+                            infoWindow,
+                            state_a
+                        )
+                    }
+                }
+                time--
+                handler.postDelayed(this,1000)
+            }
+        }
+    }
+    
     override fun onStart() {
         super.onStart()
         mapView.onStart()
@@ -226,5 +322,4 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onLowMemory()
         mapView.onLowMemory()
     }
-
 }
