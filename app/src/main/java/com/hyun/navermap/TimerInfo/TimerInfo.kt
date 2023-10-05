@@ -1,11 +1,13 @@
 package com.hyun.navermap.TimerInfo
 
 import android.content.Context
+import android.graphics.Color
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.NonNull
+import com.google.firebase.database.collection.LLRBNode
 import com.hyun.navermap.R
 import com.hyun.navermap.Signal
 import com.hyun.navermap.TimeInfo
@@ -49,6 +51,12 @@ class TimerInfo (
                 val stateText = view.findViewById<TextView>(R.id.State_cross)
 
                 stateText.text = state
+                if(state == "적"){
+                    stateText.setTextColor(Color.RED)
+                }
+                else if(state == "청"){
+                    stateText.setTextColor(Color.GREEN)
+                }
                 titleText.text = signalData.No
                 timerTextView.text = timerText
 
