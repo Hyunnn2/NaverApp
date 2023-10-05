@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.core.content.ContextCompat
 import com.google.firebase.database.collection.LLRBNode
 import com.hyun.navermap.R
 import com.hyun.navermap.Signal
@@ -52,10 +53,10 @@ class TimerInfo (
 
                 stateText.text = state
                 if(state == "적"){
-                    stateText.setTextColor(Color.RED)
+                    stateText.setTextColor(ContextCompat.getColor(context, R.color.Red))
                 }
                 else if(state == "청"){
-                    stateText.setTextColor(Color.GREEN)
+                    stateText.setTextColor(ContextCompat.getColor(context, R.color.Green))
                 }
                 titleText.text = signalData.No
                 timerTextView.text = timerText
