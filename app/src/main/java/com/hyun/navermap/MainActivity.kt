@@ -98,6 +98,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         val currentMinutes = currentTime.get(Calendar.MINUTE)
         val currentsecond = currentTime.get(Calendar.SECOND)
 
+        // 시간에 따라 빼줘야하는 초값
+        var minus_value = 0.0
+
         // 가져온 현재시간을 이용해 총 초의 값계산
         var Time_second = currentMinutes * 60 + currentsecond
 
@@ -134,8 +137,29 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 else if (signalData.time.containsKey(timeKey2)) signalData.time[timeKey2]
                 else continue
 
+            val timeKey_R =
+                if (signalData.time.containsKey(timeKey1)) timeKey1
+                else if (signalData.time.containsKey(timeKey2)) timeKey2
+                else continue
+
+            when(timeKey_R){
+                "6:30" -> minus_value = 6.5
+                "7:00" -> minus_value = 7.0
+                "9:00" -> minus_value = 9.0
+                "10:00" -> minus_value = 10.0
+                "16:00" -> minus_value = 16.0
+                "20:00" -> minus_value = 20.0
+                "21:00" -> minus_value = 21.0
+                else -> 0
+            }
+
+            var unique_time : Int = (Time_second + (currentHour - minus_value) * 60 * 60).toInt()
+
+            println("총 초 : ${unique_time}")
+
+
             // 각 시간 주기에 맞는 나머지 시간 계산
-            val ls = Time_second % (timeInfo!!.period.toInt())
+            val ls = unique_time % (timeInfo!!.period.toInt())
 
             // 적, 청 구분
             val lg = timeInfo.StartTime + timeInfo.onTime
@@ -148,7 +172,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             if (ls < timeInfo.StartTime) {
                 state = "적"
                 lasttime_state = timeInfo.StartTime - ls
-            } else if (timeInfo.StartTime <= ls && ls <= lg) {
+            } else if (ls in timeInfo.StartTime..lg) {
                 state = "청"
                 lasttime_state = lg - ls
             }
@@ -246,7 +270,6 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
             var state_a = state
 
             override fun run() {
-                println("해당 스레드의 입력값: ${state_a}, ${time}")
                 if (time > 0) {
                     val infoTimer = TimerInfo(
                         marker,
