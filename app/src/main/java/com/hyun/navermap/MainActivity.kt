@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         var minus_value = 0.0
 
         // 가져온 현재시간을 이용해 총 초의 값계산
-        var Time_second = currentMinutes * 60 + currentsecond
+        var Time_second = (currentMinutes * 60) + currentsecond
 
         // 현재 시간에 해당하는 데이터를 찾기
         //6:30 주기
@@ -142,6 +142,8 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 else if (signalData.time.containsKey(timeKey2)) timeKey2
                 else continue
 
+            println("timeKey_R 값 : ${timeKey_R}")
+
             when(timeKey_R){
                 "6:30" -> minus_value = 6.5
                 "7:00" -> minus_value = 7.0
@@ -153,7 +155,9 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                 else -> 0
             }
 
-            var unique_time : Int = (Time_second + (currentHour - minus_value) * 60 * 60).toInt()
+            println(" minus value : ${minus_value}")
+
+            var unique_time : Int = (Time_second + ((currentHour - minus_value) * 60 * 60)).toInt()
 
             println("총 초 : ${unique_time}")
 
