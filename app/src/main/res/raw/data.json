@@ -184,23 +184,23 @@
       "time": {
         "6:30": {
           "period": 180,
-          "StartTime":111,
-          "onTime": 29
+          "StartTime":108,
+          "onTime": 37
         },
         "10:00": {
           "period": 160,
-          "StartTime": 91,
-          "onTime": 29
+          "StartTime": 88,
+          "onTime": 37
         },
         "16:00": {
           "period": 180,
-          "StartTime": 111,
-          "onTime": 29
+          "StartTime": 108,
+          "onTime": 37
         },
         "21:00": {
           "period": 160,
-          "StartTime": 91,
-          "onTime": 29
+          "StartTime": 88,
+          "onTime": 37
         }
       }
     },
@@ -214,22 +214,22 @@
         "6:30": {
           "period": 180,
           "StartTime": 145,
-          "onTime": 29
+          "onTime": 35
         },
         "10:00": {
           "period": 160,
           "StartTime": 125,
-          "onTime": 29
+          "onTime": 35
         },
         "16:00": {
           "period": 180,
           "StartTime": 145,
-          "onTime": 29
+          "onTime": 35
         },
         "21:00": {
           "period": 160,
           "StartTime": 125,
-          "onTime": 29
+          "onTime": 35
         }
       }
     },

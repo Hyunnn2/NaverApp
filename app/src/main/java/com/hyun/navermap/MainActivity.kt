@@ -157,7 +157,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
             println(" minus value : ${minus_value}")
 
-            var unique_time : Int = (Time_second + ((currentHour - minus_value) * 60 * 60)).toInt()
+            var unique_time : Int = (Time_second + 90 + ((currentHour - minus_value) * 60 * 60)).toInt()
 
             println("총 초 : ${unique_time}")
 
