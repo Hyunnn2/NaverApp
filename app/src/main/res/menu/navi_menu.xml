@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/tab_map"
+        android:enabled="true"
+        android:icon="@drawable/ic_map"
+        android:title="지도"/>
+
+    <item
+        android:id="@+id/tab_bookmark"
+        android:enabled="true"
+        android:icon="@drawable/ic_star"
+        android:title="즐겨찾기"/>
+
+    <item
+        android:id="@+id/tab_user"
+        android:enabled="true"
+        android:icon="@drawable/ic_user"
+        android:title="MY"/>
+
+</menu>
