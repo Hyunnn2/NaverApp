@@ -4,7 +4,7 @@
       "No": "401-3-1",
       "latitude": 35.150925,
       "longitude": 128.103179,
-      "captionText": "",
+      "captionText": "가좌삼거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -34,7 +34,7 @@
       "No": "401-3-2",
       "latitude": 35.150867,
       "longitude": 128.103513,
-      "captionText": "",
+      "captionText": "가좌삼거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -63,7 +63,7 @@
       "No": "401-3-3",
       "latitude": 35.151173,
       "longitude": 128.103644,
-      "captionText": "",
+      "captionText": "가좌삼거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -92,7 +92,7 @@
       "No": "402-3-1",
       "latitude": 35.150436,
       "longitude": 128.10182,
-      "captionText": "",
+      "captionText": "가좌주공그린빌",
       "etc": "",
       "time": {
         "6:30": {
@@ -121,7 +121,7 @@
       "No": "402-3-2",
       "latitude": 35.150318,
       "longitude": 128.102059,
-      "captionText": "",
+      "captionText": "가좌주공그린빌",
       "etc": "",
       "time": {
         "6:30": {
@@ -150,7 +150,7 @@
       "No": "403-1",
       "latitude": 35.152394,
       "longitude": 128.105062,
-      "captionText": "",
+      "captionText": "경상대학교정문",
       "etc": "",
       "time": {
         "6:30": {
@@ -179,7 +179,7 @@
       "No": "403-2",
       "latitude": 35.152462,
       "longitude": 128.10538,
-      "captionText": "",
+      "captionText": "경상대학교정문",
       "etc": "",
       "time": {
         "6:30": {
@@ -208,7 +208,7 @@
       "No": "403-3",
       "latitude": 35.1522,
       "longitude": 128.105167,
-      "captionText": "",
+      "captionText": "경상대학교정문",
       "etc": "",
       "time": {
         "6:30": {
@@ -237,7 +237,7 @@
       "No": "404-1",
       "latitude": 35.15704,
       "longitude": 128.107359,
-      "captionText": "",
+      "captionText": "개양지구대",
       "etc": "",
       "time": {
         "6:30": {
@@ -266,7 +266,7 @@
       "No": "404-3",
       "latitude": 35.157198,
       "longitude": 128.10756,
-      "captionText": "",
+      "captionText": "개양지구대",
       "etc": "",
       "time": {
         "6:30": {
@@ -295,7 +295,7 @@
       "No": "405-1-1",
       "latitude": 35.155874,
       "longitude": 128.107172,
-      "captionText": "",
+      "captionText": "경상대후문입구",
       "etc": "",
       "time": {
         "6:30": {
@@ -324,7 +324,7 @@
       "No": "405-1-2",
       "latitude": 35.155801,
       "longitude": 128.107599,
-      "captionText": "",
+      "captionText": "경상대후문입구",
       "etc": "",
       "time": {
         "6:30": {
@@ -353,7 +353,7 @@
       "No": "405-2",
       "latitude": 35.156039,
       "longitude": 128.107417,
-      "captionText": "",
+      "captionText": "경상대후문입구",
       "etc": "",
       "time": {
         "6:30": {
@@ -382,7 +382,7 @@
       "No": "405-3",
       "latitude": 35.155692,
       "longitude": 128.107351,
-      "captionText": "",
+      "captionText": "경상대후문입구",
       "etc": "",
       "time": {
         "6:30": {
@@ -412,7 +412,7 @@
       "No": "406-2",
       "latitude": 35.16458,
       "longitude": 128.105944,
-      "captionText": "",
+      "captionText": "가호경로당",
       "etc": "",
       "time": {
         "6:30": {
@@ -441,7 +441,7 @@
       "No": "407-2",
       "latitude": 35.161586,
       "longitude": 128.106683,
-      "captionText": "",
+      "captionText": "연암공대단일로",
       "etc": "",
       "time": {
         "6:30": {
@@ -470,7 +470,7 @@
       "No": "408-1",
       "latitude": 35.162873,
       "longitude": 128.106161,
-      "captionText": "",
+      "captionText": "연암공대사거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -499,7 +499,7 @@
       "No": "408-2",
       "latitude": 35.162762,
       "longitude": 128.106344,
-      "captionText": "",
+      "captionText": "연암공대사거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -528,7 +528,7 @@
       "No": "408-3",
       "latitude": 35.162927,
       "longitude": 128.106474,
-      "captionText": "",
+      "captionText": "연암공대사거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -557,7 +557,7 @@
       "No": "408-4",
       "latitude": 35.163005,
       "longitude": 128.106294,
-      "captionText": "",
+      "captionText": "연암공대사거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -586,7 +586,7 @@
       "No": "409-1",
       "latitude": 35.159286,
       "longitude": 128.10742,
-      "captionText": "",
+      "captionText": "개양오거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -615,7 +615,7 @@
       "No": "409-2",
       "latitude": 35.159008,
       "longitude": 128.108107,
-      "captionText": "",
+      "captionText": "개양오거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -644,7 +644,7 @@
       "No": "409-3",
       "latitude": 35.158929,
       "longitude": 128.107743,
-      "captionText": "",
+      "captionText": "개양오거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -673,7 +673,7 @@
       "No": "409-4",
       "latitude": 35.1592,
       "longitude": 128.108101,
-      "captionText": "",
+      "captionText": "개양오거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -702,7 +702,7 @@
       "No": "409-5",
       "latitude": 35.159353,
       "longitude": 128.107667,
-      "captionText": "",
+      "captionText": "개양오거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -731,7 +731,7 @@
       "No": "410-2",
       "latitude": 35.159612,
       "longitude": 128.109437,
-      "captionText": "",
+      "captionText": "정촌초등학교",
       "etc": "",
       "time": {
         "6:30": {
@@ -760,7 +760,7 @@
       "No": "415-2-1",
       "latitude": 35.150864,
       "longitude": 128.111823,
-      "captionText": "",
+      "captionText": "은하수초교입구",
       "etc": {
         "stime":"23:00",
         "etime":"5:00"
@@ -792,7 +792,7 @@
       "No": "415-2-2",
       "latitude": 35.150453,
       "longitude": 128.112034,
-      "captionText": "",
+      "captionText": "은하수초교입구",
       "etc": {
         "stime":"23:00",
         "etime":"5:00"
@@ -824,7 +824,7 @@
       "No": "415-4",
       "latitude": 35.150535,
       "longitude": 128.111652,
-      "captionText": "",
+      "captionText": "은하수초교입구",
       "etc": {
         "stime":"23:00",
         "etime":"5:00"
@@ -856,7 +856,7 @@
       "No": "415-5",
       "latitude": 35.150772,
       "longitude": 128.112184,
-      "captionText": "",
+      "captionText": "은하수초교입구",
       "etc": {
         "stime":"23:00",
         "etime":"5:00"
@@ -888,7 +888,7 @@
       "No": "416-1-1",
       "latitude": 35.151562,
       "longitude": 128.11401,
-      "captionText": "",
+      "captionText": "가호동행정복지센터",
       "etc": "",
       "time": {
         "6:30": {
@@ -917,7 +917,7 @@
       "No": "416-1-2",
       "latitude": 35.151298,
       "longitude": 128.1142,
-      "captionText": "",
+      "captionText": "가호동행정복지센터",
       "etc": "",
       "time": {
         "6:30": {
@@ -946,7 +946,7 @@
       "No": "416-3",
       "latitude": 35.151459,
       "longitude": 12.114242,
-      "captionText": "",
+      "captionText": "가호동행정복지센터",
       "etc": "",
       "time": {
         "6:30": {
@@ -975,7 +975,7 @@
       "No": "416-4",
       "latitude": 35.151386,
       "longitude": 128.113942,
-      "captionText": "",
+      "captionText": "가호동행정복지센터",
       "etc": "",
       "time": {
         "6:30": {
@@ -1006,7 +1006,7 @@
       "No": "(417-1-1)",
       "latitude": 35.153165,
       "longitude": 128.117042,
-      "captionText": "",
+      "captionText": "신진주역",
       "etc": "",
       "time": {
         "7:00": {
@@ -1035,7 +1035,7 @@
       "No": "(417-1-2)",
       "latitude": 35.152797,
       "longitude": 128.116704,
-      "captionText": "",
+      "captionText": "신진주역",
       "etc": "",
       "time": {
         "7:00": {
@@ -1065,7 +1065,7 @@
       "No": "(417-3)",
       "latitude": 35.152798,
       "longitude": 128.117053,
-      "captionText": "",
+      "captionText": "신진주역",
       "etc": "",
       "time": {
         "7:00": {
@@ -1094,7 +1094,7 @@
       "No": "(417-4)",
       "latitude": 35.153216,
       "longitude": 128.116717,
-      "captionText": "",
+      "captionText": "신진주역",
       "etc": "",
       "time": {
         "7:00": {
@@ -1124,7 +1124,7 @@
       "No": "(418-1-1)",
       "latitude": 35.155043,
       "longitude": 128.117633,
-      "captionText": "",
+      "captionText": "줌오피스텔 사거리",
       "etc": "",
       "time": {
         "7:00": {
@@ -1153,7 +1153,7 @@
       "No": "(418-1-2)",
       "latitude": 35.154906,
       "longitude": 128.118177,
-      "captionText": "",
+      "captionText": "줌오피스텔 사거리",
       "etc": "",
       "time": {
         "7:00": {
@@ -1182,7 +1182,7 @@
       "No": "(418-3)",
       "latitude": 35.154792,
       "longitude": 128.117846,
-      "captionText": "",
+      "captionText": "줌오피스텔 사거리",
       "etc": "",
       "time": {
         "7:00": {
@@ -1211,7 +1211,7 @@
       "No": "(418-4)",
       "latitude": 35.155141,
       "longitude": 128.117869,
-      "captionText": "",
+      "captionText": "줌오피스텔 사거리",
       "etc": "",
       "time": {
         "7:00": {
@@ -1240,7 +1240,7 @@
       "No": "(421-1-1)",
       "latitude": 35.154961,
       "longitude": 128.11392,
-      "captionText": "",
+      "captionText": "프리미어웰가",
       "etc": {
         "stime":"00:00",
         "etime":"5:00"
@@ -1272,7 +1272,7 @@
       "No": "(421-1-2)",
       "latitude": 35.15465,
       "longitude": 128.113732,
-      "captionText": "",
+      "captionText": "프리미어웰가",
       "etc": {
         "stime":"00:00",
         "etime":"5:00"
@@ -1304,7 +1304,7 @@
       "No": "(421-3)",
       "latitude": 35.15488,
       "longitude": 128.113656,
-      "captionText": "",
+      "captionText": "프리미어웰가",
       "etc": {
         "stime":"00:00",
         "etime":"5:00"
@@ -1336,7 +1336,7 @@
       "No": "(421-4)",
       "latitude": 35.154726,
       "longitude": 128.11401,
-      "captionText": "",
+      "captionText": "프리미어웰가",
       "etc": {
         "stime":"00:00",
         "etime":"5:00"
@@ -1370,7 +1370,7 @@
       "No": "423-1-1",
       "latitude": 35.150863,
       "longitude": 128.111825,
-      "captionText": "",
+      "captionText": "우미린아파트입구",
       "etc": {
         "stime":"23:00",
         "etime":"5:00"
@@ -1402,7 +1402,7 @@
       "No": "423-1-2",
       "latitude": 35.150457,
       "longitude": 128.112039,
-      "captionText": "",
+      "captionText": "우미린아파트입구",
       "etc": {
         "stime":"23:00",
         "etime":"5:00"
@@ -1434,7 +1434,7 @@
       "No": "423-3",
       "latitude": 35.15077,
       "longitude": 128.112185,
-      "captionText": "",
+      "captionText": "우미린아파트입구",
       "etc": {
         "stime":"23:00",
         "etime":"5:00"
@@ -1466,7 +1466,7 @@
       "No": "423-4",
       "latitude": 35.15053,
       "longitude": 128.111653,
-      "captionText": "",
+      "captionText": "우미린아파트입구",
       "etc": {
         "stime":"23:00",
         "etime":"5:00"
@@ -1498,7 +1498,7 @@
       "No": "424-2",
       "latitude": 35.148219,
       "longitude": 128.105135,
-      "captionText": "",
+      "captionText": "개양육교삼거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -1527,7 +1527,7 @@
       "No": "424-4",
       "latitude": 35.148127,
       "longitude": 128.105353,
-      "captionText": "",
+      "captionText": "개양육교삼거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -1556,7 +1556,7 @@
       "No": "425-4",
       "latitude": 35.145302,
       "longitude": 128.101533,
-      "captionText": "",
+      "captionText": "가좌이주단지사거리",
       "etc": "",
       "time": {
         "6:30": {
@@ -1585,7 +1585,7 @@
       "No": "428-1",
       "latitude": 35.16343,
       "longitude": 128.108232,
-      "captionText": "",
+      "captionText": "MBC방송국",
       "etc": {
         "stime":"00:00",
         "etime":"5:00"
@@ -1617,7 +1617,7 @@
       "No": "428-3",
       "latitude": 35.163264,
       "longitude": 128.108395,
-      "captionText": "",
+      "captionText": "MBC방송국",
       "etc": {
         "stime":"00:00",
         "etime":"5:00"
@@ -1649,7 +1649,7 @@
       "No": "428-4",
       "latitude": 35.16343,
       "longitude": 128.108232,
-      "captionText": "",
+      "captionText": "MBC방송국",
       "etc": {
         "stime":"00:00",
         "etime":"5:00"
@@ -1681,7 +1681,7 @@
       "No": "428-6",
       "latitude": 35.163264,
       "longitude": 128.108395,
-      "captionText": "",
+      "captionText": "MBC방송국",
       "etc": {
         "stime":"00:00",
         "etime":"5:00"
@@ -1715,7 +1715,7 @@
       "No": "(446-3-1)",
       "latitude": 35.154097,
       "longitude": 128.115469,
-      "captionText": "",
+      "captionText": "시티프라디움입구",
       "etc": {
         "stime":"22:00",
         "etime":"7:00"
@@ -1747,7 +1747,7 @@
       "No": "(493-2)",
       "latitude": 35.155726,
       "longitude": 128.109568,
-      "captionText": "",
+      "captionText": "가좌동성당",
       "etc":{
         "stime":"00:00",
         "etime":"5:00"
@@ -1779,7 +1779,7 @@
       "No": "427-1",
       "latitude": 35.152859,
       "longitude": 128.120398,
-      "captionText": "",
+      "captionText": "신진주역세권",
       "etc": {
         "stime":"21:00",
         "etime":"7:00"
@@ -1796,7 +1796,7 @@
       "No": "427-2",
       "latitude": 35.152729,
       "longitude": 128.120421,
-      "captionText": "",
+      "captionText": "신진주역세권",
       "etc": {
         "stime":"21:00",
         "etime":"7:00"
@@ -1813,7 +1813,7 @@
       "No": "427-3",
       "latitude": 35.152699,
       "longitude": 128.12025,
-      "captionText": "",
+      "captionText": "신진주역세권",
       "etc": {
         "stime":"21:00",
         "etime":"7:00"
@@ -1830,7 +1830,7 @@
       "No": "427-4",
       "latitude": 35.152843,
       "longitude": 128.120235,
-      "captionText": "",
+      "captionText": "신진주역세권",
       "etc": {
         "stime":"21:00",
         "etime":"7:00"
@@ -1847,7 +1847,7 @@
       "No": "434-3",
       "latitude": 35.152132,
       "longitude": 128.111584,
-      "captionText": "",
+      "captionText": "은하수초교사거리",
       "etc": {
         "stime":"20:00",
         "etime":"7:00"
@@ -1864,7 +1864,7 @@
       "No": "491-1",
       "latitude": 35.149701,
       "longitude": 128.102416,
-      "captionText": "",
+      "captionText": "가좌초등학교앞",
       "etc":{
         "stime":"00:00",
         "etime":"00:00"
@@ -1881,7 +1881,7 @@
       "No": "491-2",
       "latitude": 35.149671,
       "longitude": 128.102549,
-      "captionText": "",
+      "captionText": "가좌초등학교앞",
       "etc":{
         "stime":"00:00",
         "etime":"00:00"
@@ -1898,7 +1898,7 @@
       "No": "491-3",
       "latitude": 35.149477,
       "longitude": 128.102555,
-      "captionText": "",
+      "captionText": "가좌초등학교앞",
       "etc":{
         "stime":"00:00",
         "etime":"00:00"
