@@ -8,6 +8,7 @@ import java.time.format.DateTimeFormatter
 
 class SignalDataLoader(private val resources: Resources) {
     fun loadSignalData(): List<Signal> {
+
         val signalDataList = mutableListOf<Signal>()
 
         // JSON 파일을 읽어오기
@@ -22,6 +23,7 @@ class SignalDataLoader(private val resources: Resources) {
         for (i in 0 until 67) {
             val signalObject = jsonObject.getJSONObject("Signal").getJSONObject(i.toString())
             val signalData = Signal(
+
                 No = signalObject.getString("No"),
                 latitude = signalObject.getDouble("latitude"),
                 longitude = signalObject.getDouble("longitude"),
@@ -31,7 +33,6 @@ class SignalDataLoader(private val resources: Resources) {
             )
             signalDataList.add(signalData)
         }
-
         return signalDataList
     }
 

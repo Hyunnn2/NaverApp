@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.annotation.NonNull
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.CameraPosition
 import com.naver.maps.map.LocationTrackingMode
@@ -19,6 +22,9 @@ import com.naver.maps.map.util.MarkerIcons
 import kotlinx.coroutines.Runnable
 import java.util.Calendar
 import com.hyun.navermap.TimerInfo.TimerInfo
+import com.hyun.navermap.fragments.BookMarkFragment
+import com.hyun.navermap.fragments.CMapFragment
+import com.hyun.navermap.fragments.UserFragment
 
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -56,6 +62,14 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var MapRunnable: Runnable
 
+    private val fl: FrameLayout by lazy {
+        findViewById(R.id.fragment_container)
+    }
+
+    private val bn: BottomNavigationView by lazy {
+        findViewById(R.id.bottomNavigationView)
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +83,22 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         signalDataLoader = SignalDataLoader(resources)
         signalDataList = signalDataLoader.loadSignalData()
 
+        supportFragmentManager.beginTransaction().add(fl.id, CMapFragment()).commit()
+
+        bn.setOnNavigationItemSelectedListener {
+            replaceFragment(
+                when (it.itemId) {
+                    R.id.tab_map -> CMapFragment()
+                    R.id.tab_bookmark -> BookMarkFragment()
+                    else -> UserFragment()
+                }
+            )
+            true
+        }
+    }
+
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(fl.id, fragment).commit()
     }
 
 
