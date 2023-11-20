@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -88,9 +87,18 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         bn.setOnNavigationItemSelectedListener {
             replaceFragment(
                 when (it.itemId) {
-                    R.id.tab_map -> CMapFragment()
-                    R.id.tab_bookmark -> BookMarkFragment()
-                    else -> UserFragment()
+                    R.id.tab_map -> {
+                        mapView.visibility = View.VISIBLE
+                        CMapFragment()
+                    }
+                    R.id.tab_bookmark -> {
+                        mapView.visibility = View.GONE
+                        BookMarkFragment()
+                    }
+                    else -> {
+                        mapView.visibility = View.GONE
+                        UserFragment()
+                    }
                 }
             )
             true
