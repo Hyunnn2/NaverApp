@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
+import android.widget.Button
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
@@ -91,10 +92,12 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                         mapView.visibility = View.VISIBLE
                         CMapFragment()
                     }
+
                     R.id.tab_bookmark -> {
                         mapView.visibility = View.GONE
                         BookMarkFragment()
                     }
+
                     else -> {
                         mapView.visibility = View.GONE
                         UserFragment()
