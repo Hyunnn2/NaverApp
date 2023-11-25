@@ -7,7 +7,7 @@ import java.time.LocalTime
 import java.time.format.DateTimeFormatter
 
 class SignalDataLoader(private val resources: Resources) {
-    fun loadSignalData(): List<Signal> {
+    fun loadSignalData() : List<Signal> {
 
         val signalDataList = mutableListOf<Signal>()
 
@@ -36,7 +36,7 @@ class SignalDataLoader(private val resources: Resources) {
         return signalDataList
     }
 
-    private fun parseTimeInfo(timeObject: JSONObject): Map<String, TimeInfo> {
+    private fun parseTimeInfo(timeObject: JSONObject) : Map<String, TimeInfo> {
         val timeInfoMap = mutableMapOf<String, TimeInfo>()
 
         // 0부터 69까지의 신호등 데이터 가져오기(time)

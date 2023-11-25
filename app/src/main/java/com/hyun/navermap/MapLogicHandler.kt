@@ -12,25 +12,20 @@ import java.util.Calendar
 import com.hyun.navermap.TimerInfo.TimerInfo
 
 class MapLogicHandler(
-    private val signalDataList: List<Signal>,
-    private val naverMap: NaverMap,
-    private val context: Context
+    private val signalDataList : List<Signal>,
+    private val naverMap : NaverMap,
+    private val context : Context
 ) {
 
-    private lateinit var handler: Handler
-    private val markerList = mutableListOf<Marker>()
-    private val infowindowList = mutableListOf<InfoWindow>()
-    private val lasttimeList = mutableListOf<Int>()
-    private val OntimeList = mutableListOf<Int>()
-    private val OfftimeList = mutableListOf<Int>()
-
+    //타이머를 동일하게 1초씩 감소시키기 위한 핸들러 변수
+    private lateinit var handler : Handler
 
     fun handleMapReady(currentHour: Int) {
         val currentTime = Calendar.getInstance()
         val currentMinutes = currentTime.get(Calendar.MINUTE)
         val currentsecond = currentTime.get(Calendar.SECOND)
-        var minus_value = 0.0
-        var Time_second = (currentMinutes * 60) + currentsecond
+        var minusValue = 0.0
+        var Timesecond = (currentMinutes * 60) + currentsecond
 
         for (signalData in signalDataList) {
             val timeKey1 = getTimeKeyForFirstRange(currentHour)
@@ -46,48 +41,42 @@ class MapLogicHandler(
                 else if (signalData.time.containsKey(timeKey2)) timeKey2
                 else continue
 
-            println("timeKey_R 값 : ${timeKey_R}")
-
             when(timeKey_R){
-                "6:30" -> minus_value = 6.5
-                "7:00" -> minus_value = 7.0
-                "9:00" -> minus_value = 9.0
-                "10:00" -> minus_value = 10.0
-                "16:00" -> minus_value = 16.0
-                "20:00" -> minus_value = 20.0
-                "21:00" -> minus_value = 21.0
+                "6:30" -> minusValue = 6.5
+                "7:00" -> minusValue = 7.0
+                "9:00" -> minusValue = 9.0
+                "10:00" -> minusValue = 10.0
+                "16:00" -> minusValue = 16.0
+                "20:00" -> minusValue = 20.0
+                "21:00" -> minusValue = 21.0
                 else -> 0
             }
 
-            println(" minus value : ${minus_value}")
-
-            var unique_time : Int = (Time_second + 90 + ((currentHour - minus_value) * 60 * 60)).toInt()
-
-            println("총 초 : ${unique_time}")
-
+            var uniqueTime : Int = (Timesecond + 90 + ((currentHour - minusValue) * 60 * 60)).toInt()
 
             // 각 시간 주기에 맞는 나머지 시간 계산
-            val ls = unique_time % (timeInfo!!.period.toInt())
+            val ls = uniqueTime % (timeInfo!!.period.toInt())
 
             // 적, 청 구분
             val lg = timeInfo.StartTime + timeInfo.onTime
             var state: String
 
             // 신호등 상태의 잔여시간
-            var lasttime_state: Int
+            var lasttimeState: Int
 
             // 신호등 적,청 구분을 위한 수식
             if (ls < timeInfo.StartTime) {
                 state = "적"
-                lasttime_state = timeInfo.StartTime - ls
+                lasttimeState = timeInfo.StartTime - ls
             } else if (ls in timeInfo.StartTime..lg) {
                 state = "청"
-                lasttime_state = lg - ls
+                lasttimeState = lg - ls
             }
+
             //(lg <= ls)
             else {
                 state = "적"
-                lasttime_state = timeInfo.StartTime + timeInfo.period - ls
+                lasttimeState = timeInfo.StartTime + timeInfo.period - ls
             }
 
             //마커 찍기
@@ -97,24 +86,17 @@ class MapLogicHandler(
             marker.icon = MarkerIcons.BLACK // 원하는 마커 아이콘 설정
             marker.map = naverMap
 
-            markerList.add(marker)
-
             //정보창 설정 및 리스트에 추가
             val infoWindow = InfoWindow()
-            infowindowList.add(infoWindow)
 
             // InfoWindow에 Timer기능을 추가해주는 class 사용
             val offtime = timeInfo.period - timeInfo.onTime
             val ontime = timeInfo.onTime
 
-            lasttimeList.add(lasttime_state)
-            OntimeList.add(ontime)
-            OfftimeList.add(offtime)
-
-            if (lasttime_state > 0) {
+            if (lasttimeState > 0) {
                 val infoTimer = TimerInfo(
                     marker,
-                    lasttime_state,
+                    lasttimeState,
                     signalData,
                     context,
                     infoWindow,
@@ -123,10 +105,10 @@ class MapLogicHandler(
             } else {
                 if (state == "적") {
                     state = "청"
-                    lasttime_state = ontime
+                    lasttimeState = ontime
                     val infoTimer = TimerInfo(
                         marker,
-                        lasttime_state,
+                        lasttimeState,
                         signalData,
                         context,
                         infoWindow,
@@ -134,10 +116,10 @@ class MapLogicHandler(
                     )
                 } else if (state == "청") {
                     state = "적"
-                    lasttime_state = offtime
+                    lasttimeState = offtime
                     val infoTimer = TimerInfo(
                         marker,
-                        lasttime_state,
+                        lasttimeState,
                         signalData,
                         context,
                         infoWindow,
@@ -145,11 +127,11 @@ class MapLogicHandler(
                     )
                 }
             }
-            lasttime_state--
+            lasttimeState--
             handler = Handler()
             handler.postDelayed(
                 UpdateRunnable(
-                    lasttime_state,
+                    lasttimeState,
                     marker,
                     signalData,
                     infoWindow,
@@ -199,7 +181,7 @@ class MapLogicHandler(
         return object : Runnable{
 
             var time = lasttime_state
-            var state_a = state
+            var stateA = state
 
             override fun run() {
                 if (time > 0) {
@@ -209,12 +191,12 @@ class MapLogicHandler(
                         signalData,
                         context,
                         infoWindow,
-                        state_a
+                        stateA
                     )
                 }
                 else {
-                    if (state_a == "적") {
-                        state_a = "청"
+                    if (stateA == "적") {
+                        stateA = "청"
                         time = ontime
                         val infoTimer = TimerInfo(
                             marker,
@@ -222,10 +204,10 @@ class MapLogicHandler(
                             signalData,
                             context,
                             infoWindow,
-                            state_a
+                            stateA
                         )
-                    } else if (state_a == "청") {
-                        state_a = "적"
+                    } else if (stateA == "청") {
+                        stateA = "적"
                         time = offtime
                         val infoTimer = TimerInfo(
                             marker,
@@ -233,7 +215,7 @@ class MapLogicHandler(
                             signalData,
                             context,
                             infoWindow,
-                            state_a
+                            stateA
                         )
                     }
                 }

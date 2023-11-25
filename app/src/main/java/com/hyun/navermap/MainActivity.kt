@@ -35,41 +35,16 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var naverMap: NaverMap
     private lateinit var mapLogicHandler: MapLogicHandler
 
-    private lateinit var timerText: String
-    private lateinit var handler: Handler
-
     private lateinit var signalDataList: List<Signal>
     private lateinit var signalDataLoader: SignalDataLoader
 
-    // 가장 최근에 클릭한 마커가 무엇인지 알기 위한 변수
-    private val currentmarker: Int = 0
-
-    // 특정 마커를 지칭해주는 배열 설정
-    private val markerList = mutableListOf<Marker>()
-
-    // 특정 마커에 해당하는 정보창을 지정해주는 배열 설정
-    private val infowindowList = mutableListOf<InfoWindow>()
-
-    // 잔여시간 리스트 목록
-    private val lasttimeList = mutableListOf<Int>()
-
-    // 청색 신호등 점등시간 리스트 목록
-    private var OntimeList = mutableListOf<Int>()
-
-    // 적색 신호등 점등시간 리스트 목록
-    private var OfftimeList = mutableListOf<Int>()
-    // Runnable 변수 만들기(1000ms 마다 맵을 업데이트)
-
-    private lateinit var MapRunnable: Runnable
-
-    private val fl: FrameLayout by lazy {
+    private val fl : FrameLayout by lazy {
         findViewById(R.id.fragment_container)
     }
 
-    private val bn: BottomNavigationView by lazy {
+    private val bn : BottomNavigationView by lazy {
         findViewById(R.id.bottomNavigationView)
     }
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,11 +55,14 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         mapView.getMapAsync(this)
         locationSource = FusedLocationSource(this, LOCATION_PERMISSTION_REQUEST_CODE)
 
+        // 신호등 데이터를 가져오기 위한 연산
         signalDataLoader = SignalDataLoader(resources)
         signalDataList = signalDataLoader.loadSignalData()
 
         supportFragmentManager.beginTransaction().add(fl.id, CMapFragment()).commit()
 
+
+        // 네비게이션 클릭시 이벤트에 맞는 작동
         bn.setOnNavigationItemSelectedListener {
             replaceFragment(
                 when (it.itemId) {
@@ -114,6 +92,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
 
     override fun onMapReady(@NonNull naverMap: NaverMap) {
+
         //초기 위치 : 경상대 정문
         val cameraPosition = CameraPosition(
             LatLng(35.152391, 128.105066), 18.0
@@ -128,11 +107,19 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         naverMap.locationSource = locationSource
         val uiSettings = naverMap.uiSettings
         uiSettings.isLocationButtonEnabled = true
-        naverMap.locationTrackingMode = LocationTrackingMode.None //실시간 위치 추적 모드
+
+        //실시간 위치 추적 모드
+        naverMap.locationTrackingMode = LocationTrackingMode.None
 
         this.naverMap = naverMap
-        mapLogicHandler = MapLogicHandler(signalDataList, naverMap, this) // Context 전달
-        val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY) // 현재 시간의 시 (0-23)
+
+        // Context 전달
+        mapLogicHandler = MapLogicHandler(signalDataList, naverMap, this)
+
+        // 현재 시간의 시 (0-23)
+        val currentHour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
+
+        // 지도 만들기 연산
         mapLogicHandler.handleMapReady(currentHour)
     }
 

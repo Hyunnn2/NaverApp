@@ -36,18 +36,19 @@ class introActivity : AppCompatActivity() {
             val password = binding.passwordArea.text.toString()
 
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
-                    if (task.isSuccessful) {
-                        Toast.makeText(this,"로그인 성공", Toast.LENGTH_LONG).show()
+                if (task.isSuccessful) {
+                    Toast.makeText(this,"로그인 성공", Toast.LENGTH_LONG).show()
 
-                        val intent = Intent(this, MainActivity::class.java)
-                        //기존 Activity 다 날리기
-                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                        startActivity(intent)
+                    val intent = Intent(this, MainActivity::class.java)
+                    //기존 Activity 다 날리기
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+                    startActivity(intent)
 
-                    } else {
-                        Toast.makeText(this,"로그인 실패", Toast.LENGTH_LONG).show()
-                    }
                 }
+                else {
+                    Toast.makeText(this,"로그인 실패", Toast.LENGTH_LONG).show()
+                }
+            }
         }
     }
 }

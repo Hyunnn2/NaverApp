@@ -67,12 +67,12 @@ class JoinActivity : AppCompatActivity() {
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                             startActivity(intent)
 
-                        } else {
+                        }
+                        else {
                             Toast.makeText(this,"실패",Toast.LENGTH_LONG).show()
                         }
-                    }
+                }
             }
         }
-
     }
 }
