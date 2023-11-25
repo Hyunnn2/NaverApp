@@ -1,25 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.UserFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="user" />
+        tools:context=".fragments.UserFragment">
 
-    <Button
-        android:id="@+id/logoutBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="#00bffe"
-        android:text="로그아웃"
-        android:textColor="#ffffff"
-        android:textSize="15dp"
-        android:textStyle="bold" />
+        <!-- TODO: Update blank fragment layout -->
 
-</FrameLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/mypage"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="250dp"
+                android:layout_marginRight="30dp"
+                android:textColor="#000000"
+                android:textSize="40dp"
+                android:textStyle="bold|italic"
+                android:text="My Page"/>
+
+            <TextView
+                android:id="@+id/useremailText"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="30dp"
+                android:textColor="#000000"
+                android:textSize="23dp"
+                android:textStyle="bold"
+                android:text="Now, E-mail Address"/>
+
+            <TextView
+                android:id="@+id/userInfoTextView"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:padding="15dp"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:background="@drawable/textview_border"
+                />
+
+            <Button
+                android:id="@+id/logoutBtn"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="30dp"
+                android:background="#00bffe"
+                android:text="로그아웃"
+                android:textColor="#ffffff"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+</layout>

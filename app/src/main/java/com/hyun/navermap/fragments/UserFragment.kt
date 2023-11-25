@@ -1,5 +1,6 @@
 package com.hyun.navermap.fragments
 
+import com.hyun.navermap.login.IntroActivity
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,11 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.hyun.navermap.R
-import com.hyun.navermap.login.IntroActivity
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,9 +53,23 @@ class UserFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_user, container, false)
 
+        // 사용자 정보를 표시하는 TextView
+        val userInfoTextView: TextView = view.findViewById(R.id.userInfoTextView)
+        val user = auth.currentUser
+
+        user?.let {
+            val userEmail = user.email
+
+            userEmail?.let {
+                val userInfoText = "$it"
+                userInfoTextView.text = userInfoText
+                userInfoTextView.visibility = View.VISIBLE
+            }
+        }
+
+        //로그아웃
         val logoutButton: Button = view.findViewById(R.id.logoutBtn)
 
-        //리스너 설정
         logoutButton.setOnClickListener {
             auth.signOut()
 

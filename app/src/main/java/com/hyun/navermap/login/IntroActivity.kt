@@ -16,7 +16,7 @@ import com.hyun.navermap.databinding.ActivityIntroBinding
  * 파이어베이스에 입력된 사용자의 정보가 존재한다면 사용자의 접근을 허용한다.
  *
  */
-class IntroActivity : AppCompatActivity() {
+open class IntroActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
