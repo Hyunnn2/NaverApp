@@ -2,9 +2,7 @@ package com.hyun.navermap
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
-import android.widget.Button
 import android.widget.FrameLayout
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
@@ -15,18 +13,19 @@ import com.naver.maps.map.LocationTrackingMode
 import com.naver.maps.map.MapView
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.OnMapReadyCallback
-import com.naver.maps.map.overlay.InfoWindow
-import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.FusedLocationSource
-import com.naver.maps.map.util.MarkerIcons
-import kotlinx.coroutines.Runnable
 import java.util.Calendar
-import com.hyun.navermap.TimerInfo.TimerInfo
+import com.hyun.navermap.calculate.MapLogicHandler
+import com.hyun.navermap.calculate.Signal
+import com.hyun.navermap.calculate.SignalDataLoader
 import com.hyun.navermap.fragments.BookMarkFragment
 import com.hyun.navermap.fragments.CMapFragment
 import com.hyun.navermap.fragments.UserFragment
 
-
+/**
+ * 해당 클래스는 네이버 지도 API를 이용해 원하는 정보들을 들고오는 클래스이다.
+ * 비동기 함수를 포함하며 네이버 지도를 받아 해당 지도 연산을 위한 인자가 필요한 클래스에게 객체를 전달해준다.
+ */
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var mapView: MapView

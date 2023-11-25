@@ -1,4 +1,4 @@
-package com.hyun.navermap
+package com.hyun.navermap.calculate
 
 import android.content.Context
 import android.os.Handler
@@ -10,16 +10,22 @@ import com.naver.maps.map.util.MarkerIcons
 import kotlinx.coroutines.Runnable
 import java.util.Calendar
 import com.hyun.navermap.TimerInfo.TimerInfo
-
+/**
+* 네이버 맵에 필요한 요소들을 넣기 위한 클래스
+* 네이버 지도 객체와 신호등 데이터를 받아와 사용한다.
+*
+*/
 class MapLogicHandler(
     private val signalDataList : List<Signal>,
     private val naverMap : NaverMap,
     private val context : Context
 ) {
 
-    //타이머를 동일하게 1초씩 감소시키기 위한 핸들러 변수
+    // 타이머를 동일하게 1초씩 감소시키기 위한 핸들러 변수
     private lateinit var handler : Handler
 
+    // 네이버 지도를 준비하는 과정을 다루는 함수
+    // 해당함수는 현재시간을 인자값으로 받는다.
     fun handleMapReady(currentHour: Int) {
         val currentTime = Calendar.getInstance()
         val currentMinutes = currentTime.get(Calendar.MINUTE)
@@ -54,17 +60,16 @@ class MapLogicHandler(
 
             var uniqueTime : Int = (Timesecond + 90 + ((currentHour - minusValue) * 60 * 60)).toInt()
 
-            // 각 시간 주기에 맞는 나머지 시간 계산
+            // 각 시간 주기에 맞는 나머지 시간 계산을 위한 변수
             val ls = uniqueTime % (timeInfo!!.period.toInt())
 
-            // 적, 청 구분
+            // 적, 청 구분을 위한 변수
             val lg = timeInfo.StartTime + timeInfo.onTime
             var state: String
 
-            // 신호등 상태의 잔여시간
+            // 신호등 상태의 잔여시간 변수
             var lasttimeState: Int
 
-            // 신호등 적,청 구분을 위한 수식
             if (ls < timeInfo.StartTime) {
                 state = "적"
                 lasttimeState = timeInfo.StartTime - ls
@@ -73,20 +78,18 @@ class MapLogicHandler(
                 lasttimeState = lg - ls
             }
 
-            //(lg <= ls)
             else {
                 state = "적"
                 lasttimeState = timeInfo.StartTime + timeInfo.period - ls
             }
 
-            //마커 찍기
             val marker = Marker()
             marker.position = LatLng(signalData.latitude, signalData.longitude)
             marker.captionText = signalData.captionText
             marker.icon = MarkerIcons.BLACK // 원하는 마커 아이콘 설정
             marker.map = naverMap
 
-            //정보창 설정 및 리스트에 추가
+            // 정보창 변수 선언
             val infoWindow = InfoWindow()
 
             // InfoWindow에 Timer기능을 추가해주는 class 사용
@@ -102,7 +105,8 @@ class MapLogicHandler(
                     infoWindow,
                     state
                 )
-            } else {
+            }
+            else {
                 if (state == "적") {
                     state = "청"
                     lasttimeState = ontime
@@ -130,7 +134,7 @@ class MapLogicHandler(
             lasttimeState--
             handler = Handler()
             handler.postDelayed(
-                UpdateRunnable(
+                updateRunnable(
                     lasttimeState,
                     marker,
                     signalData,
@@ -152,6 +156,7 @@ class MapLogicHandler(
         }
     }
 
+    // 하는 일: 시작 주기가 6:30분인 신호등의 주기값을 선정
     private fun getTimeKeyForFirstRange(hour: Int): String {
         return when {
             hour >= 6.5 && hour < 10 -> "6:30"
@@ -161,6 +166,8 @@ class MapLogicHandler(
         }
     }
 
+
+    // 하는 일 : 시작 주기가 7:00분인 신호등의 주기값을 선정
     private fun getTimeKeyForSecondRange(hour: Int): String {
         return when {
             hour >= 7 && hour < 9 -> "7:00"
@@ -169,7 +176,9 @@ class MapLogicHandler(
             else -> "20:00"
         }
     }
-    private fun UpdateRunnable(
+
+    // 하는 일 : 정보창 타이머의 시간을 1초씩 줄이기 위해 핸들러가 사용하는 함수
+    private fun updateRunnable(
         lasttime_state : Int,
         marker: Marker,
         signalData : Signal,
@@ -183,6 +192,7 @@ class MapLogicHandler(
             var time = lasttime_state
             var stateA = state
 
+            // 하는 일 : 해당 Runnable 함수에서 하는 일들을 명시하는 함수
             override fun run() {
                 if (time > 0) {
                     val infoTimer = TimerInfo(

@@ -8,11 +8,12 @@ import androidx.databinding.DataBindingUtil
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.hyun.navermap.MainActivity
 import com.hyun.navermap.R
-import com.hyun.navermap.databinding.ActivityIntroBinding
 import com.hyun.navermap.databinding.ActivityJoinBinding
-
+/**
+ * 해당 클래스는 파이어베이스와 연동된다.
+ * 사용자의 정보를 입력받아 해당 정보의 양식을 비교해 사용자의 회원가입을 승인한다.
+ */
 class JoinActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
@@ -62,7 +63,7 @@ class JoinActivity : AppCompatActivity() {
                             Toast.makeText(this,"성공",Toast.LENGTH_LONG).show()
 
                             //introActivity로 이동
-                            val intent = Intent(this, introActivity::class.java)
+                            val intent = Intent(this, IntroActivity::class.java)
                             //기존 Activity 다 날리기
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                             startActivity(intent)

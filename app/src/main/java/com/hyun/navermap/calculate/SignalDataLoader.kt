@@ -1,12 +1,17 @@
-package com.hyun.navermap
+package com.hyun.navermap.calculate
 
 import android.content.res.Resources
 import org.json.JSONObject
 import java.io.InputStream
-import java.time.LocalTime
-import java.time.format.DateTimeFormatter
 
+/**
+ * 해당 클래스는 안드로이드 스튜디오 내의 .json 파일에 접근한다.
+ * 접근한 파일에 신호등 데이터에서 필요한 데이터를 읽어온다.
+ * 읽어온 데이터를 signalDataList에 저장하는 함수를 가지고 있다.
+ *
+ */
 class SignalDataLoader(private val resources: Resources) {
+    // 하는 일 : .json에 접근해 데이터를 읽어온다.
     fun loadSignalData() : List<Signal> {
 
         val signalDataList = mutableListOf<Signal>()
@@ -36,6 +41,7 @@ class SignalDataLoader(private val resources: Resources) {
         return signalDataList
     }
 
+    // 하는 일 : 신호등의 시간데이터를 읽어온다.
     private fun parseTimeInfo(timeObject: JSONObject) : Map<String, TimeInfo> {
         val timeInfoMap = mutableMapOf<String, TimeInfo>()
 

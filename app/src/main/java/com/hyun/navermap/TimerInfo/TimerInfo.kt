@@ -1,26 +1,19 @@
 package com.hyun.navermap.TimerInfo
 
 import android.content.Context
-import android.graphics.Color
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
-import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
-import com.google.firebase.database.collection.LLRBNode
 import com.hyun.navermap.R
-import com.hyun.navermap.Signal
-import com.hyun.navermap.TimeInfo
-import com.naver.maps.geometry.LatLng
-import com.naver.maps.map.CameraPosition
-import com.naver.maps.map.LocationTrackingMode
-import com.naver.maps.map.NaverMap
+import com.hyun.navermap.calculate.Signal
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
-import com.naver.maps.map.util.MarkerIcons
-import java.util.Calendar
 
+/**
+ * 해당 클래스는 마커 정보창의 view를 원하는 형식으로 바꿔주기 위한 클래스이다.
+ * 클래스는 정보창을 가진 마커와 정보창의 표시하는 데이터를 인자로 받는다.
+ */
 class TimerInfo (
     private val marker : Marker,
     private val lasttime_state : Int,
@@ -35,6 +28,7 @@ class TimerInfo (
     //현지 시간에 따른 onTime -1연산을 위한 변수 설정
     var timervar : Int = lasttime_state
 
+    // 하는 일 : infoWindow의 정보창을 원하는 형식으로 변경한다.
     init{
         infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(context) {
             override fun getContentView(p0: InfoWindow): View {

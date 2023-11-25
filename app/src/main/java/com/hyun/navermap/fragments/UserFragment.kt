@@ -11,7 +11,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.hyun.navermap.R
-import com.hyun.navermap.login.introActivity
+import com.hyun.navermap.login.IntroActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,7 +58,7 @@ class UserFragment : Fragment() {
             auth.signOut()
 
             //introActivity로 이동
-            val intent = Intent(requireContext(), introActivity::class.java)
+            val intent = Intent(requireContext(), IntroActivity::class.java)
             //기존 Activity 다 날리기
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             startActivity(intent)

@@ -11,8 +11,12 @@ import com.google.firebase.ktx.Firebase
 import com.hyun.navermap.MainActivity
 import com.hyun.navermap.R
 import com.hyun.navermap.databinding.ActivityIntroBinding
-
-class introActivity : AppCompatActivity() {
+/**
+ * 해당 클래스는 파이어베이스와 연동된다.
+ * 파이어베이스에 입력된 사용자의 정보가 존재한다면 사용자의 접근을 허용한다.
+ *
+ */
+class IntroActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
@@ -25,7 +29,6 @@ class introActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_intro)
 
         binding.joinBtn.setOnClickListener {
-            //JoinActivity로 이동
             val intent = Intent(this,JoinActivity::class.java )
             startActivity(intent)
         }
