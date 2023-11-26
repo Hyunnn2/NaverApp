@@ -11,10 +11,10 @@ import kotlinx.coroutines.Runnable
 import java.util.Calendar
 import com.hyun.navermap.TimerInfo.TimerInfo
 /**
-* 네이버 맵에 필요한 요소들을 넣기 위한 클래스
-* 네이버 지도 객체와 신호등 데이터를 받아와 사용한다.
-*
-*/
+ * 네이버 맵에 필요한 요소들을 넣기 위한 클래스
+ * 네이버 지도 객체와 신호등 데이터를 받아와 사용한다.
+ *
+ */
 class MapLogicHandler(
     private val signalDataList : List<Signal>,
     private val naverMap : NaverMap,

@@ -26,7 +26,7 @@ import com.hyun.navermap.fragments.UserFragment
  * 해당 클래스는 네이버 지도 API를 이용해 원하는 정보들을 들고오는 클래스이다.
  * 비동기 함수를 포함하며 네이버 지도를 받아 해당 지도 연산을 위한 인자가 필요한 클래스에게 객체를 전달해준다.
  */
-class MainActivity : AppCompatActivity(), OnMapReadyCallback {
+class MainActivity : AppCompatActivity(), OnMapReadyCallback, BookMarkFragment.OnSignalSelectedListener {
 
     private lateinit var mapView: MapView
     private val LOCATION_PERMISSTION_REQUEST_CODE: Int = 1000
@@ -85,8 +85,26 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    override fun onSignalSelected(signal: Signal) {
+        // 선택한 신호등 처리
+        moveCameraToSignal(signal)
+
+        // CMapFragment로 이동
+        replaceFragment(CMapFragment())
+    }
+
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(fl.id, fragment).commit()
+        if (fragment is CMapFragment) {
+            mapView.visibility = View.VISIBLE
+        } else {
+            mapView.visibility = View.GONE
+        }
+    }
+
+    private fun moveCameraToSignal(signal: Signal) {
+        val cameraPosition = CameraPosition(LatLng(signal.latitude, signal.longitude), 18.0)
+        naverMap.cameraPosition = cameraPosition
     }
 
 

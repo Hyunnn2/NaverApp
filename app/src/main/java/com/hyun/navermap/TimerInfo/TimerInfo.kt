@@ -52,4 +52,14 @@ class TimerInfo (
             }
         }
     }
+
+    // 정보창 열기
+    fun openInfoWindow() {
+        infoWindow.open(marker)
+    }
+
+    // 정보창 닫기
+    fun closeInfoWindow() {
+        infoWindow.close()
+    }
 }

@@ -1,6 +1,7 @@
 package com.hyun.navermap.calculate
 
 import android.content.res.Resources
+import com.naver.maps.geometry.LatLng
 import org.json.JSONObject
 import java.io.InputStream
 
@@ -34,7 +35,9 @@ class SignalDataLoader(private val resources: Resources) {
                 longitude = signalObject.getDouble("longitude"),
                 captionText = signalObject.getString("captionText"),
                 etc = signalObject.getString("etc"),
-                time = parseTimeInfo(signalObject.getJSONObject("time"))
+                time = parseTimeInfo(signalObject.getJSONObject("time")),
+                location = LatLng(signalObject.getDouble("latitude"), signalObject.getDouble("longitude")),
+                id = false
             )
             signalDataList.add(signalData)
         }

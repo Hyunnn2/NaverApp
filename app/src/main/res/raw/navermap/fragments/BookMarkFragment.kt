@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hyun.navermap.R
+import com.hyun.navermap.calculate.Signal
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -18,6 +19,13 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class BookMarkFragment : Fragment() {
+    class OnSignalSelectedListener {
+        fun onSignalSelected(selectedSignal: Signal) {
+            TODO("Not yet implemented")
+        }
+
+    }
+
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
