@@ -2,7 +2,7 @@
 <resources>
     //로그인
     <color name="mainColor">#00bffe</color>
-
+    <color name="grey">#848484</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="Red">#DF3030</color>

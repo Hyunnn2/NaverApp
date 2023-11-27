@@ -23,7 +23,7 @@ class TimerInfo (
     private var state : String
 ){
     //현재 시간에 따른 onTime
-    var timerText = "남은 시간: ${lasttime_state}초"
+    var timerText = "${lasttime_state}"
 
     //현지 시간에 따른 onTime -1연산을 위한 변수 설정
     var timervar : Int = lasttime_state
@@ -35,17 +35,17 @@ class TimerInfo (
 
                 val view = LayoutInflater.from(context).inflate(R.layout.activity_info, null)
                 val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
-                val titleText = view.findViewById<TextView>(R.id.Name_cross)
-                val stateText = view.findViewById<TextView>(R.id.State_cross)
+                val captionText = view.findViewById<TextView>(R.id.caption_cross)
+                val noText = view.findViewById<TextView>(R.id.No_cross)
 
-                stateText.text = state
                 if(state == "적"){
-                    stateText.setTextColor(ContextCompat.getColor(context, R.color.Red))
+                    timerTextView.setTextColor(ContextCompat.getColor(context, R.color.Red))
                 }
                 else if(state == "청"){
-                    stateText.setTextColor(ContextCompat.getColor(context, R.color.Green))
+                    timerTextView.setTextColor(ContextCompat.getColor(context, R.color.Green))
                 }
-                titleText.text = signalData.No
+                noText.text = signalData.No
+                captionText.text = signalData.captionText
                 timerTextView.text = timerText
 
                 return view
