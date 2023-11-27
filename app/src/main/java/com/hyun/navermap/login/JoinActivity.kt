@@ -34,11 +34,17 @@ class JoinActivity : AppCompatActivity() {
             val password1 = binding.passwordArea1.text.toString()
             val password2 = binding.passwordArea2.text.toString()
 
-            //값이 비어었는지 확인
+            //email 값이 비어었는지 확인
             if(email.isEmpty()){
                 Toast.makeText(this,"이메일을 입력해주세요.",Toast.LENGTH_LONG).show()
                 isGoToJoin = false
+            //email 형식 확인
+            }else if (!email.contains("@")) {
+                Toast.makeText(this, "올바른 이메일 형식이 아닙니다.", Toast.LENGTH_LONG).show()
+                isGoToJoin = false
             }
+
+            //password 값이 비어었는지 확인
             if(password1.isEmpty()){
                 Toast.makeText(this,"password을 입력해주세요.",Toast.LENGTH_LONG).show()
                 isGoToJoin = false
