@@ -1,4 +1,4 @@
-package com.hyun.navermap.TimerInfo
+package com.hyun.navermap.timerinfo
 
 import android.content.Context
 import android.view.LayoutInflater

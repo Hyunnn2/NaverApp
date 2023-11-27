@@ -12,11 +12,13 @@ import com.hyun.navermap.BookMark.BookmarkAdapter
 import com.hyun.navermap.R
 import com.hyun.navermap.calculate.Signal
 import com.hyun.navermap.calculate.SignalDataLoader
+import com.google.firebase.auth.FirebaseAuth
 
 class BookMarkFragment : Fragment() {
 
     private lateinit var signalAdapter: BookmarkAdapter
     private lateinit var onSignalSelectedListener: OnSignalSelectedListener
+    private lateinit var userUid: String
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -36,12 +38,16 @@ class BookMarkFragment : Fragment() {
         val listView: ListView = rootView.findViewById(R.id.signalListView)
         val radioGroup: RadioGroup = rootView.findViewById(R.id.radioGroup)
 
+        // Firebase 사용자 UID 가져오기
+        val auth = FirebaseAuth.getInstance()
+        userUid = auth.currentUser?.uid ?: ""
+
         // 신호등 데이터 로드 (ViewModel이나 다른 소스에서 이 데이터를 가져올 수 있습니다)
         val signalDataLoader = SignalDataLoader(resources)
         val signalDataList: List<Signal> = signalDataLoader.loadSignalData()
 
         // 어댑터 생성 및 설정
-        signalAdapter = BookmarkAdapter(requireContext(), signalDataList, onSignalSelectedListener)
+        signalAdapter = BookmarkAdapter(requireContext(), signalDataList, onSignalSelectedListener, userUid)
         listView.adapter = signalAdapter
 
         // 라디오 그룹 리스너 설정하여 라디오 버튼 클릭을 처리

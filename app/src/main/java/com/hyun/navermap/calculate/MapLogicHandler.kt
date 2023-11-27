@@ -9,7 +9,7 @@ import com.naver.maps.map.overlay.Marker
 import com.naver.maps.map.util.MarkerIcons
 import kotlinx.coroutines.Runnable
 import java.util.Calendar
-import com.hyun.navermap.TimerInfo.TimerInfo
+import com.hyun.navermap.timerinfo.TimerInfo
 /**
  * 네이버 맵에 필요한 요소들을 넣기 위한 클래스
  * 네이버 지도 객체와 신호등 데이터를 받아와 사용한다.
@@ -58,7 +58,7 @@ class MapLogicHandler(
                 else -> 0
             }
 
-            var uniqueTime : Int = (Timesecond + 90 + ((currentHour - minusValue) * 60 * 60)).toInt()
+            var uniqueTime : Int = (Timesecond + 90 + (Math.abs((currentHour - minusValue)) * 60 * 60)).toInt()
 
             // 각 시간 주기에 맞는 나머지 시간 계산을 위한 변수
             val ls = uniqueTime % (timeInfo!!.period.toInt())

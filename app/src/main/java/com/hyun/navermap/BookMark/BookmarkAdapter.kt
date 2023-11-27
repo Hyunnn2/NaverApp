@@ -7,19 +7,23 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.TextView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.hyun.navermap.R
 import com.hyun.navermap.calculate.Signal
+import com.hyun.navermap.fragments.BookMarkFragment
 
 class BookmarkAdapter(
     context: Context,
     signals: List<Signal>,
-    private val onSignalSelectedListener: com.hyun.navermap.fragments.BookMarkFragment.OnSignalSelectedListener
+    private val onSignalSelectedListener: BookMarkFragment.OnSignalSelectedListener,
+    private val userUid: String // Firebase에서 사용자 UID를 가져오는 방법에 따라 할당
 ) : ArrayAdapter<Signal>(context, 0, signals) {
 
-    private val sharedPreferences =
-        context.getSharedPreferences("BookmarkPreferences", Context.MODE_PRIVATE)
+    private val bookmarksRef = FirebaseDatabase.getInstance().getReference("bookmarks").child(userUid)
 
-    private var showBookmarkedSignals: Boolean = false
     private var originalSignals: List<Signal> = ArrayList(signals)
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -46,84 +50,94 @@ class BookmarkAdapter(
         // 북마크 상태 설정
         setBookmarkButtonState(bookmarkButton, signalId)
 
-        // "즐겨찾기" 라디오 버튼이 선택되었을 때, 북마크된 신호등만 표시
-        if (showBookmarkedSignals) {
-            val isBookmarked = sharedPreferences.getBoolean(signalId, false)
-            if (!isBookmarked) {
-                // 북마크가 되어 있지 않으면 뷰를 숨깁니다.
-                listItemView.visibility = View.GONE
-
-                return listItemView
+        // 북마크 버튼 클릭 이벤트 처리
+        bookmarkButton.setOnClickListener {
+            val isBookmarked = toggleBookmarkState(bookmarkButton, signalId)
+            if (isBookmarked) {
+                addBookmark(signalId)
             } else {
-                // 북마크된 신호등이면 뷰를 보이도록 설정
-                listItemView.visibility = View.VISIBLE
+                removeBookmark(signalId)
             }
-        } else {
-            // "즐겨찾기" 라디오 버튼이 선택되지 않았을 때는 모든 뷰를 보이도록 설정
-            listItemView.visibility = View.VISIBLE
         }
 
-        // 북마크 상태에 따라 뷰 업데이트
         signalNumberTextView.text = currentSignal?.No
         signalLocationTextView.text = currentSignal?.captionText
-
-        // 클릭 이벤트 리스너 설정
-        bookmarkButton.setOnClickListener {
-            // 클릭 시 이미지 변경 및 북마크 상태 저장
-            val isBookmarked = toggleBookmarkState(bookmarkButton, signalId)
-            // 여기에서 즐겨찾기 상태에 따라 데이터를 처리하거나 다른 작업을 수행할 수 있습니다.
-        }
 
         return listItemView
     }
 
-    // 필터 상태를 업데이트하는 메서드
-    fun setShowBookmarkedSignals(showBookmarked: Boolean) {
-        showBookmarkedSignals = showBookmarked
-        if (showBookmarked) {
-            // "즐겨찾기" 라디오 버튼이 선택되었을 때, 북마크된 신호등만 필터링하여 리스트 업데이트
-            val bookmarkedSignals = originalSignals.filter { signal ->
-                sharedPreferences.getBoolean(signal.No, false)
-            }
-            clear()
-            addAll(bookmarkedSignals)
-        } else {
-            // "즐겨찾기" 라디오 버튼이 선택되지 않았을 때는 원래의 리스트로 복원
-            clear()
-            addAll(originalSignals)
+    // 북마크 추가
+    private fun addBookmark(signalId: String?) {
+        signalId?.let {
+            bookmarksRef.child(signalId).setValue(true)
         }
-        notifyDataSetChanged()
     }
 
-    private fun toggleBookmarkState(button: ImageButton, signalId: String?): Boolean {
-        // 현재 상태 확인
-        val isBookmarked = sharedPreferences.getBoolean(signalId, false)
+    // 북마크 삭제
+    private fun removeBookmark(signalId: String?) {
+        signalId?.let {
+            bookmarksRef.child(signalId).removeValue()
+        }
+    }
 
-        // 상태 변경
+    // 북마크 상태를 토글하는 함수
+    private fun toggleBookmarkState(button: ImageButton, signalId: String?): Boolean {
+        val isBookmarked = button.tag as? Boolean ?: false
         val newBookmarkState = !isBookmarked
 
-        // 클릭 시 이미지 변경
         val newImageResource =
             if (newBookmarkState) R.drawable.bookmark_on
             else R.drawable.ic_bookmark
 
         button.setImageResource(newImageResource)
-
-        // 즐겨찾기 상태를 SharedPreferences에 저장
-        sharedPreferences.edit().putBoolean(signalId, newBookmarkState).apply()
+        button.tag = newBookmarkState // 버튼의 상태를 저장하는 태그를 사용하여 상태 유지
 
         return newBookmarkState
     }
 
     private fun setBookmarkButtonState(button: ImageButton, signalId: String?) {
-        // 현재 상태 확인
-        val isBookmarked = sharedPreferences.getBoolean(signalId, false)
+        if (signalId != null) {
+            bookmarksRef.child(signalId).addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val isBookmarked = snapshot.exists()
+                    val imageResource =
+                        if (isBookmarked) R.drawable.bookmark_on
+                        else R.drawable.ic_bookmark
 
-        // 이미지 변경
-        val imageResource =
-            if (isBookmarked) R.drawable.bookmark_on
-            else R.drawable.ic_bookmark
+                    button.setImageResource(imageResource)
+                    button.tag = isBookmarked // 버튼의 태그에 상태를 저장하여 상태 유지
+                }
 
-        button.setImageResource(imageResource)
+                override fun onCancelled(error: DatabaseError) {
+                    // 처리하지 않음
+                }
+            })
+        }
+    }
+
+    fun setShowBookmarkedSignals(showBookmarked: Boolean) {
+        var showBookmarkedSignals = showBookmarked
+        if (showBookmarked) {
+            // Firebase에서 사용자가 북마크한 신호등 ID 가져오기
+            bookmarksRef.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val bookmarkedSignals = originalSignals.filter { signal ->
+                        snapshot.child(signal.No).exists()
+                    }
+                    clear()
+                    addAll(bookmarkedSignals)
+                    notifyDataSetChanged()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    // 오류 처리
+                }
+            })
+        } else {
+            // 모든 신호등 표시
+            clear()
+            addAll(originalSignals)
+            notifyDataSetChanged()
+        }
     }
 }
