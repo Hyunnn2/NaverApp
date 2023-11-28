@@ -15,6 +15,11 @@ import com.hyun.navermap.R
 import com.hyun.navermap.calculate.Signal
 import com.hyun.navermap.fragments.BookMarkFragment
 
+/**
+ * 즐겨찾기 등록을 위한 클래스이다.
+ * 해당 클래스는 앱 화면, 신호등 리스트, UserID와 신호클릭어뎁터를 인자로 받아 사용한다.
+ *
+ */
 class BookmarkAdapter(
     context: Context,
     signals: List<Signal>,
@@ -26,6 +31,7 @@ class BookmarkAdapter(
 
     private var originalSignals: List<Signal> = ArrayList(signals)
 
+    // 하는 일 : 해당 클래스는 북마크 리스트의 뷰를 보여준다.
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
         var listItemView = convertView
         if (listItemView == null) {
@@ -66,21 +72,21 @@ class BookmarkAdapter(
         return listItemView
     }
 
-    // 북마크 추가
+    // 하는 일 : 북마크 추가
     private fun addBookmark(signalId: String?) {
         signalId?.let {
             bookmarksRef.child(signalId).setValue(true)
         }
     }
 
-    // 북마크 삭제
+    // 하는 일 : 북마크 삭제
     private fun removeBookmark(signalId: String?) {
         signalId?.let {
             bookmarksRef.child(signalId).removeValue()
         }
     }
 
-    // 북마크 상태를 토글하는 함수
+    // 하는 일 : 북마크 상태를 토글하는 함수
     private fun toggleBookmarkState(button: ImageButton, signalId: String?): Boolean {
         val isBookmarked = button.tag as? Boolean ?: false
         val newBookmarkState = !isBookmarked
@@ -95,6 +101,7 @@ class BookmarkAdapter(
         return newBookmarkState
     }
 
+    // 하는 일 : 북마크 버튼 클릭시 해당 북마크의 상태를 변경한다.
     private fun setBookmarkButtonState(button: ImageButton, signalId: String?) {
         if (signalId != null) {
             bookmarksRef.child(signalId).addListenerForSingleValueEvent(object : ValueEventListener {
@@ -115,6 +122,7 @@ class BookmarkAdapter(
         }
     }
 
+    // 하는 일 : 해당 유저의 북마크 리스트를 반환한다.
     fun setShowBookmarkedSignals(showBookmarked: Boolean) {
         var showBookmarkedSignals = showBookmarked
         if (showBookmarked) {
