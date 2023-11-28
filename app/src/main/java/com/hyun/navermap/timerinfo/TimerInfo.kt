@@ -1,6 +1,7 @@
 package com.hyun.navermap.timerinfo
 
 import android.content.Context
+import android.graphics.Bitmap
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
@@ -9,6 +10,7 @@ import com.hyun.navermap.R
 import com.hyun.navermap.calculate.Signal
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
+import com.naver.maps.map.overlay.OverlayImage
 
 /**
  * 해당 클래스는 마커 정보창의 view를 원하는 형식으로 바꿔주기 위한 클래스이다.
@@ -28,10 +30,16 @@ class TimerInfo (
     //현지 시간에 따른 onTime -1연산을 위한 변수 설정
     var timervar : Int = lasttime_state
 
+
+
+
+
     // 하는 일 : infoWindow의 정보창을 원하는 형식으로 변경한다.
     init{
         infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(context) {
             override fun getContentView(p0: InfoWindow): View {
+
+
 
                 val view = LayoutInflater.from(context).inflate(R.layout.activity_info, null)
                 val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
@@ -40,9 +48,12 @@ class TimerInfo (
 
                 if(state == "적"){
                     timerTextView.setTextColor(ContextCompat.getColor(context, R.color.Red))
+                    marker.icon = OverlayImage.fromResource(R.drawable.icon_red_marker)
+
                 }
                 else if(state == "청"){
                     timerTextView.setTextColor(ContextCompat.getColor(context, R.color.Green))
+                    marker.icon = OverlayImage.fromResource(R.drawable.icon_green_marker)
                 }
                 noText.text = signalData.No
                 captionText.text = signalData.captionText
@@ -61,5 +72,9 @@ class TimerInfo (
     // 정보창 닫기
     fun closeInfoWindow() {
         infoWindow.close()
+    }
+
+    fun resizeBitmap(originalBitmap: Bitmap, newWidth: Int, newHeight: Int): Bitmap {
+        return Bitmap.createScaledBitmap(originalBitmap, newWidth, newHeight, true)
     }
 }

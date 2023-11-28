@@ -2,14 +2,16 @@ package com.hyun.navermap.calculate
 
 import android.content.Context
 import android.os.Handler
+import com.hyun.navermap.R
+import com.hyun.navermap.timerinfo.TimerInfo
 import com.naver.maps.geometry.LatLng
 import com.naver.maps.map.NaverMap
 import com.naver.maps.map.overlay.InfoWindow
 import com.naver.maps.map.overlay.Marker
-import com.naver.maps.map.util.MarkerIcons
 import kotlinx.coroutines.Runnable
 import java.util.Calendar
-import com.hyun.navermap.timerinfo.TimerInfo
+import com.naver.maps.map.overlay.OverlayImage
+
 /**
  * 네이버 맵에 필요한 요소들을 넣기 위한 클래스
  * 네이버 지도 객체와 신호등 데이터를 받아와 사용한다.
@@ -86,7 +88,15 @@ class MapLogicHandler(
             val marker = Marker()
             marker.position = LatLng(signalData.latitude, signalData.longitude)
             marker.captionText = signalData.captionText
-            marker.icon = MarkerIcons.BLACK // 원하는 마커 아이콘 설정
+
+            marker.icon = OverlayImage.fromResource(R.drawable.icon_black_marker)
+
+            if(state == "청")
+                marker.icon = OverlayImage.fromResource(R.drawable.icon_green_marker)
+            else if(state == "적")
+                marker.icon = OverlayImage.fromResource(R.drawable.icon_red_marker)
+
+
             marker.map = naverMap
 
             // 정보창 변수 선언
