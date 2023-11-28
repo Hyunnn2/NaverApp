@@ -39,8 +39,6 @@ class TimerInfo (
         infoWindow.adapter = object : InfoWindow.DefaultViewAdapter(context) {
             override fun getContentView(p0: InfoWindow): View {
 
-
-
                 val view = LayoutInflater.from(context).inflate(R.layout.activity_info, null)
                 val timerTextView = view.findViewById<TextView>(R.id.Timer_cross)
                 val captionText = view.findViewById<TextView>(R.id.caption_cross)
@@ -48,13 +46,11 @@ class TimerInfo (
 
                 if(state == "적"){
                     timerTextView.setTextColor(ContextCompat.getColor(context, R.color.Red))
-                    marker.icon = OverlayImage.fromResource(R.drawable.icon_red_marker)
-
                 }
                 else if(state == "청"){
                     timerTextView.setTextColor(ContextCompat.getColor(context, R.color.Green))
-                    marker.icon = OverlayImage.fromResource(R.drawable.icon_green_marker)
                 }
+
                 noText.text = signalData.No
                 captionText.text = signalData.captionText
                 timerTextView.text = timerText

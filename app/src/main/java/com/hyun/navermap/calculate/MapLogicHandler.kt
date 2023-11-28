@@ -217,6 +217,7 @@ class MapLogicHandler(
                 else {
                     if (stateA == "적") {
                         stateA = "청"
+                        marker.icon = OverlayImage.fromResource(R.drawable.icon_green_marker)
                         time = ontime
                         val infoTimer = TimerInfo(
                             marker,
@@ -227,6 +228,7 @@ class MapLogicHandler(
                             stateA
                         )
                     } else if (stateA == "청") {
+                        marker.icon = OverlayImage.fromResource(R.drawable.icon_red_marker)
                         stateA = "적"
                         time = offtime
                         val infoTimer = TimerInfo(
