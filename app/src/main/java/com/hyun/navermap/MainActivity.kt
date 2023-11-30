@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, BookMarkFragment.O
     }
 
     private fun moveCameraToSignal(signal: Signal) {
-        val cameraPosition = CameraPosition(LatLng(signal.latitude, signal.longitude), 18.0)
+        val cameraPosition = CameraPosition(LatLng(signal.latitude, signal.longitude), 19.0)
         naverMap.cameraPosition = cameraPosition
     }
 
