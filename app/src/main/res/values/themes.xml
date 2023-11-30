@@ -2,6 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.NaverMap" parent="Theme.AppCompat.Light">
         <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item> <!-- 투명 타이틀바 설정 -->
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>

@@ -8,11 +8,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.RadioGroup
-import com.hyun.navermap.bookMark.BookMarkAdapter
 import com.hyun.navermap.R
 import com.hyun.navermap.calculate.Signal
 import com.hyun.navermap.calculate.SignalDataLoader
 import com.google.firebase.auth.FirebaseAuth
+import com.hyun.navermap.bookmark.BookMarkAdapter
 
 class BookMarkFragment : Fragment() {
 
@@ -53,10 +53,10 @@ class BookMarkFragment : Fragment() {
         // 라디오 그룹 리스너 설정하여 라디오 버튼 클릭을 처리
         radioGroup.setOnCheckedChangeListener { group, checkedId ->
             when (checkedId) {
-                R.id.radioButtonAll -> {
+                R.id.radioButtonFavorites -> {
                     signalAdapter.setShowBookmarkedSignals(false)
                 }
-                R.id.radioButtonFavorites -> {
+                R.id.radioButtonAll -> {
                     signalAdapter.setShowBookmarkedSignals(true)
                 }
             }
