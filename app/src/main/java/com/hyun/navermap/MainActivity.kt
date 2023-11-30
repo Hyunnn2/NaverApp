@@ -60,6 +60,10 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback, BookMarkFragment.O
 
         supportFragmentManager.beginTransaction().add(fl.id, CMapFragment()).commit()
 
+        if (intent.getBooleanExtra("widget_clicked", false)) {
+            // 위젯 클릭 처리
+            supportFragmentManager.beginTransaction().replace(fl.id, BookMarkFragment()).commit()
+        }
 
         // 네비게이션 클릭시 이벤트에 맞는 작동
         bn.setOnNavigationItemSelectedListener {
