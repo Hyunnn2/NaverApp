@@ -1,4 +1,4 @@
-package com.hyun.navermap.BookMark
+package com.hyun.navermap.bookMark
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -20,7 +20,7 @@ import com.hyun.navermap.fragments.BookMarkFragment
  * 해당 클래스는 앱 화면, 신호등 리스트, UserID와 신호클릭어뎁터를 인자로 받아 사용한다.
  *
  */
-class BookmarkAdapter(
+class BookMarkAdapter(
     context: Context,
     signals: List<Signal>,
     private val onSignalSelectedListener: BookMarkFragment.OnSignalSelectedListener,

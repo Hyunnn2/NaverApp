@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
 import android.widget.RadioGroup
-import com.hyun.navermap.BookMark.BookmarkAdapter
+import com.hyun.navermap.bookMark.BookMarkAdapter
 import com.hyun.navermap.R
 import com.hyun.navermap.calculate.Signal
 import com.hyun.navermap.calculate.SignalDataLoader
@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class BookMarkFragment : Fragment() {
 
-    private lateinit var signalAdapter: BookmarkAdapter
+    private lateinit var signalAdapter: BookMarkAdapter
     private lateinit var onSignalSelectedListener: OnSignalSelectedListener
     private lateinit var userUid: String
 
@@ -47,7 +47,7 @@ class BookMarkFragment : Fragment() {
         val signalDataList: List<Signal> = signalDataLoader.loadSignalData()
 
         // 어댑터 생성 및 설정
-        signalAdapter = BookmarkAdapter(requireContext(), signalDataList, onSignalSelectedListener, userUid)
+        signalAdapter = BookMarkAdapter(requireContext(), signalDataList, onSignalSelectedListener, userUid)
         listView.adapter = signalAdapter
 
         // 라디오 그룹 리스너 설정하여 라디오 버튼 클릭을 처리
