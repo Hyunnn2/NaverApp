@@ -1,4 +1,4 @@
-package com.hyun.navermap.bookmark
+package com.hyun.navermap.bookMark
 
 import android.content.Context
 import android.view.LayoutInflater
