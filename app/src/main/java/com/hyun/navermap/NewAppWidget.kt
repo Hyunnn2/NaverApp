@@ -41,7 +41,7 @@ internal fun updateAppWidget(
     // 위젯이 클릭되었을 때 BookMarkFragment를 시작할 수 있도록 Intent 설정
     val intent = Intent(context, MainActivity::class.java)
     intent.putExtra("widget_clicked", true)  // 위젯 클릭을 식별하기 위한 플래그
-    val pendingIntent = PendingIntent.getActivity(context, 0, intent, 0)
+    val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
 
     // 위젯 클릭 이벤트 설정
     views.setOnClickPendingIntent(R.id.widget_text, pendingIntent)

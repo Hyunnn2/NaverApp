@@ -28,6 +28,11 @@ class IntroActivity : AppCompatActivity() {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_intro)
 
+        // 사용자가 이미 인증되어 있는지 확인
+        if (auth.currentUser != null) {
+            navigateToMainActivity()
+        }
+
         binding.joinBtn.setOnClickListener {
             val intent = Intent(this,JoinActivity::class.java )
             startActivity(intent)
@@ -42,16 +47,32 @@ class IntroActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     Toast.makeText(this,"로그인 성공", Toast.LENGTH_LONG).show()
 
-                    val intent = Intent(this, MainActivity::class.java)
-                    //기존 Activity 다 날리기
-                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-                    startActivity(intent)
+                    // 사용자 토큰을 로컬에 안전하게 저장 (예: SharedPreferences 등)
+                    auth.currentUser?.getIdToken(true)?.addOnCompleteListener { tokenTask ->
+                        if (tokenTask.isSuccessful) {
+                            val userToken = tokenTask.result?.token
+                            saveTokenLocally(userToken)
+                        }
+                    }
 
-                }
-                else {
-                    Toast.makeText(this,"로그인 실패", Toast.LENGTH_LONG).show()
+                    navigateToMainActivity()
+
+                } else {
+                    Toast.makeText(this, "로그인 실패", Toast.LENGTH_LONG).show()
                 }
             }
         }
+    }
+
+    private fun saveTokenLocally(token: String?) {
+        // 토큰을 안전하게 저장하는 메서드 구현 (예: SharedPreferences 등)
+    }
+
+    private fun navigateToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        // 백 스택을 지웁니다.
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
 }
